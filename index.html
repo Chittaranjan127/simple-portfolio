@@ -8,7 +8,7 @@
     <meta name="author" content="Devcrud">
     <title>Chittaranjan Das | Portfolio Website</title>
     <!-- font icons -->
-    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
     <!-- Bootstrap + Meyawo main styles -->
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
@@ -19,7 +19,7 @@
     <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
         <div class="container">
             <a class="logo" href="#">CD</a>
-            <ul class="nav show">
+            <ul class="nav">
                 <li class="item">
                     <a class="link" href="#home">Home</a>
                 </li>
@@ -27,13 +27,16 @@
                     <a class="link" href="#about">About</a>
                 </li>
                 <li class="item">
-                    <a class="link" href="#portfolio">Portfolio</a>
+                    <a class="link" href="#service">Experiences</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#portfolio">Works</a>
                 </li>
                 <li class="item">
                     <a class="link" href="#testmonial">Testmonial</a>
                 </li>
                 <li class="item">
-                    <a class="link" href="#blog">Blog</a>
+                    <a class="link" href="#blog">Posts</a>
                 </li>
                 <li class="item">
                     <a class="link" href="#contact">Contact</a>
@@ -69,8 +72,7 @@
             <!-- about wrapper -->
             <div class="about">
                 <div class="about-img-holder">
-                    <img src="assets/imgs/man.png" class="about-img"
-                        alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    <img src="assets/imgs/man.png" class="about-img">
                 </div>
                 <div class="about-caption">
                     <p class="section-subtitle">Who Am I ?</p>
@@ -88,7 +90,10 @@
                     <p>Passionate about continuous learning and exploring new technologies, I aim to
                         create impactful digital experiences that solve real-world problems.
                     </p>
-                    <button class="btn-rounded btn btn-outline-primary mt-4">Download CV</button>
+                    <a href="assets/resume/chittaranjan_resume.pdf" class="btn-rounded btn btn-outline-primary mt-4"
+                        download>
+                        Download Resume
+                    </a>
                 </div>
             </div><!-- end of about wrapper -->
         </div><!-- end of container -->
@@ -105,9 +110,7 @@
                     <a href="https://www.snug.in/" target="_blank" class="text-decoration-none">
                         <div class="service-card">
                             <div class="body">
-                                <img src="assets/imgs/companies/snug.jpeg"
-                                    alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-                                    class="icon ">
+                                <img src="assets/imgs/companies/snug.jpeg" class="icon ">
                                 <h6 class="title">SNUG</h6>
                                 <h6 class="title-sm text-muted mb-2">Senior Software Developer</h6>
                                 <h6 class="title-sm text-muted mb-2" style="font-size: 0.85rem;">April 2021 - Present
@@ -124,9 +127,7 @@
                     <a href="https://www.spyne.ai/" target="_blank" class="text-decoration-none">
                         <div class="service-card">
                             <div class="body">
-                                <img src="assets/imgs/companies/spyne.webp"
-                                    alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-                                    class="icon">
+                                <img src="assets/imgs/companies/spyne.webp" class="icon">
                                 <h6 class="title">SPYNE</h6>
                                 <h6 class="title-sm text-muted mb-2">Software Engineer</h6>
                                 <h6 class="title-sm text-muted mb-2" style="font-size: 0.85rem;">Sept 2019 - Sept 2020
@@ -141,9 +142,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
                         <div class="body">
-                            <img src="assets/imgs/companies/eventila.jpeg"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-                                class="icon">
+                            <img src="assets/imgs/companies/eventila.jpeg" class="icon">
                             <h6 class="title">EVENTILA</h6>
                             <h6 class="title-sm text-muted mb-2">Associate Software Engineer</h6>
                             <h6 class="title-sm text-muted mb-2" style="font-size: 0.85rem;">Jun 2019 - Sept 2019</h6>
@@ -161,41 +160,54 @@
     <section class="section" id="portfolio">
         <div class="container text-center">
             <p class="section-subtitle">What I Did ?</p>
-            <h6 class="section-title mb-6">Portfolio</h6>
+            <h6 class="section-title mb-6">Works</h6>
             <!-- row -->
             <div class="row">
                 <div class="col-md-4">
-                    <a href="#" class="portfolio-card">
-                        <img src="assets/imgs/folio-1.jpg" class="portfolio-card-img"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    <a href="https://apps.apple.com/in/app/the-q-experiences/id6739945297" class="portfolio-card"
+                        target="_blank">
+                        <img src="assets/imgs/work/q-experiences.png" class="portfolio-card-img">
                         <span class="portfolio-card-overlay">
                             <span class="portfolio-card-caption">
-                                <h4>Web Designing</h5>
-                                    <p class="font-weight-normal">Category: Web Templates</p>
+                                <h4>THE Q EXPERIENCES </br> MOBILE APP</h5>
+                                    <p class="font-weight-normal mb-1">Tech: Flutter, Firebase, Node JS</p>
+
+                                    <p class="font-weight-light">
+                                        Developed a cross-platform travel app enabling customers to track journeys,
+                                        store essential documents offline, and chat with fellow passengers for a
+                                        connected travel experience.
+                                    </p>
                             </span>
                         </span>
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="#" class="portfolio-card">
-                        <img class="portfolio-card-img" src="assets/imgs/folio-2.jpg" class="img-responsive rounded"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    <a href="https://ggilonline.com/" class="portfolio-card" target="_blank">
+                        <img class="portfolio-card-img" src="assets/imgs/work/gail-india.png"
+                            class="img-responsive rounded">
                         <span class="portfolio-card-overlay">
                             <span class="portfolio-card-caption">
-                                <h4>Web Designing</h5>
-                                    <p class="font-weight-normal">Category: Web Templates</p>
+                                <h4>GAIL INDIA WEBSITE</h5>
+                                    <p class="font-weight-normal mb-1">Tech: HTML5, Bootstrap 4, JS</p>
+                                    <p class="font-weight-light">Designed and built a responsive, multilingual corporate
+                                        website optimized for performance and accessibility.</p>
+
                             </span>
                         </span>
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="#" class="portfolio-card">
-                        <img class="portfolio-card-img" src="assets/imgs/folio-3.jpg" class="img-responsive rounded"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    <a href="https://chittaranjan127.github.io/portfolio/" class="portfolio-card" target="_blank">
+                        <img class="portfolio-card-img" src="assets/imgs/work/portfolio.png"
+                            class="img-responsive rounded">
                         <span class="portfolio-card-overlay">
                             <span class="portfolio-card-caption">
-                                <h4>Web Designing</h5>
-                                    <p class="font-weight-normal">Category: Web Templates</p>
+                                <h4>PORTFOLIO WEBSITE</h5>
+                                    <p class="font-weight-normal mb-1">Tech: Angular, AWS</p>
+
+                                    <p class="font-weight-light">Created a clean, responsive portfolio site to showcase
+                                        projects, experiences, and professional journey. (Old one)</p>
+
                             </span>
                         </span>
                     </a>
@@ -207,75 +219,71 @@
     <!-- pricing section -->
     <section class="section" id="pricing">
         <div class="container text-center">
-            <p class="section-subtitle">How Much I Charge ?</p>
-            <h6 class="section-title mb-6">My Pricing</h6>
+            <p class="section-subtitle">What I Bring ?</p>
+            <h6 class="section-title mb-6">Skills & Expertise</h6>
             <!-- row -->
             <div class="pricing-wrapper">
                 <div class="pricing-card">
                     <div class="pricing-card-header">
-                        <img class="pricing-card-icon" src="assets/imgs/scooter.svg"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                        <img class="pricing-card-icon" src="assets/imgs/skills/frontend.png">
                     </div>
                     <div class="pricing-card-body">
-                        <h6 class="pricing-card-title">Free</h6>
+                        <h6 class="pricing-card-title">FRONTEND</h6>
                         <div class="pricing-card-list">
-                            <p>accusamus reprehenderit</p>
-                            <p>provident dolorem </p>
-                            <p>quos neque</p>
-                            <p>fugiat quibusdam</p>
-                            <p><i class="ti-close"></i></p>
-                            <p><i class="ti-close"></i></p>
+                            <p>HTML</p>
+                            <p>Bootsrap 4</p>
+                            <p>Angular</p>
+                            <p>React</p>
+                            <p>Dart</p>
                         </div>
                     </div>
-                    <div class="pricing-card-footer">
-                        <span>$</span>
-                        <span>0.00/Month</span>
-                    </div>
-                    <a href="#" class="btn btn-primary mt-3 pricing-card-btn">Subscribe</a>
                 </div>
                 <div class="pricing-card">
                     <div class="pricing-card-header">
-                        <img class="pricing-card-icon" src="assets/imgs/shipped.svg"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                        <img class="pricing-card-icon" src="assets/imgs/skills/backend.png">
                     </div>
                     <div class="pricing-card-body">
-                        <h6 class="pricing-card-title">Basic</h6>
+                        <h6 class="pricing-card-title">BACKEND</h6>
                         <div class="pricing-card-list">
-                            <p>accusamus reprehenderit</p>
-                            <p>provident dolorem </p>
-                            <p>quos neque</p>
-                            <p>fugiat quibusdam</p>
-                            <p>accusamus laboriosam</p>
-                            <p><i class="ti-close"></i></p>
+                            <p>Java</p>
+                            <p>Spring Boot</p>
+                            <p>Node JS</p>
+                            <p>Python</p>
                         </div>
                     </div>
-                    <div class="pricing-card-footer">
-                        <span>$</span>
-                        <span>9.99/Month</span>
-                    </div>
-                    <a href="#" class="btn btn-primary mt-3 pricing-card-btn">Subscribe</a>
+
                 </div>
                 <div class="pricing-card">
                     <div class="pricing-card-header">
-                        <img class="pricing-card-icon" src="assets/imgs/startup.svg"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                        <img class="pricing-card-icon" src="assets/imgs/skills/dev.png">
                     </div>
                     <div class="pricing-card-body">
-                        <h6 class="pricing-card-title">Premium</h6>
+                        <h6 class="pricing-card-title">DEV</h6>
                         <div class="pricing-card-list">
-                            <p>accusamus reprehenderit</p>
-                            <p>provident dolorem </p>
-                            <p>quos neque</p>
-                            <p>fugiat quibusdam</p>
-                            <p>accusamus laboriosam</p>
-                            <p>inventore omnis</p>
+                            <p>LINUX</p>
+                            <p>AWS</p>
+                            <p>Google Cloud</p>
+                            <p>Azure</p>
+                            <p></p>
                         </div>
                     </div>
-                    <div class="pricing-card-footer">
-                        <span>$</span>
-                        <span>99.9/Month</span>
+
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <img class="pricing-card-icon" src="assets/imgs/skills/tools.png">
                     </div>
-                    <a href="#" class="btn btn-primary mt-3 pricing-card-btn">Subscribe</a>
+                    <div class="pricing-card-body">
+                        <h6 class="pricing-card-title">TOOLS</h6>
+                        <div class="pricing-card-list">
+                            <p>Figma</p>
+                            <p>Canva </p>
+                            <p>Wordpress</p>
+                            <p>Shopify</p>
+                            <p>ChatGPT</p>
+                        </div>
+                    </div>
+
                 </div>
 
             </div><!-- end of pricing wrapper -->
@@ -293,7 +301,8 @@
                     <p class="m-0 text-light">Always feel Free to Contact & Hire me</p>
                 </div>
                 <div class="col-sm offset-sm-2 offset-md-3">
-                    <button class="btn btn-lg my-font btn-light rounded">Hire Me</button>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=chittaranjan1998.das@gmail.com"><button
+                            class="btn btn-lg my-font btn-light rounded">Hire Me</button></a>
                 </div>
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -305,154 +314,152 @@
             <p class="section-subtitle">What Think Client About Me ?</p>
             <h6 class="section-title mb-6">Testmonial</h6>
 
-            <!-- row -->
             <div class="row">
                 <div class="col-md-6">
                     <div class="testimonial-card">
                         <div class="testimonial-card-img-holder">
-                            <img src="assets/imgs/avatar2.jpg" class="testimonial-card-img"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                            <img src="assets/imgs/testmonial/preeti_testimonial.jpeg" class="testimonial-card-img"
+                                alt="Client Image">
                         </div>
                         <div class="testimonial-card-body">
-                            <p class="testimonial-card-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit. Eaque doloribus autem aperiam earum nostrum omnis blanditiis corporis perspiciatis
-                                adipisci nihil.</p>
-                            <h6 class="testimonial-card-title">Emily Reb</h6>
+                            <p class="testimonial-card-subtitle">
+                                He knows his job the best. No need to go back & Forth explaining things. Always puts in
+                                extra effort, leading to smooth project deployment.
+                            </p>
+                            <a href="https://www.linkedin.com/in/preeti-saini-00720a50/" target="_blank">
+                                <h6 class="testimonial-card-title mb-0">Preeti Saini</h6>
+                            </a>
+                            <p class="text-dark mb-0" style="font-size: 0.9rem;">Business Owner & Founder @ <a
+                                    href="https://www.lexicmedia.com/" target="_blank">LexicMedia</a>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="testimonial-card">
                         <div class="testimonial-card-img-holder">
-                            <img src="assets/imgs/avatar3.jpg" class="testimonial-card-img"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                            <img src="assets/imgs/testmonial/nabeel_testimonial.jpeg" class="testimonial-card-img"
+                                alt="Client Image">
                         </div>
                         <div class="testimonial-card-body">
-                            <p class="testimonial-card-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit. Eaque doloribus autem aperiam earum nostrum omnis blanditiis corporis perspiciatis
-                                adipisci nihil.</p>
-                            <h6 class="testimonial-card-title">Emily Reb</h6>
+                            <p class="testimonial-card-subtitle">
+                                A rare mix of creative and technical. He translates ideas into smooth, functional
+                                experiences and often comes up with better solutions than what we initially imagined.
+                            </p>
+                            <a href="https://www.linkedin.com/in/nabeel-hussain-2488791b5/" target="_blank">
+                                <h6 class="testimonial-card-title mb-0">Nabeel Hussain</h6>
+                            </a>
+                            <p class="text-dark mb-0" style="font-size: 0.9rem;">Head of Design @ <a
+                                    href="https://www.98fahren.com/" target="_blank">98 Fahren Inc</a>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> <!-- end of container -->
-    </section> <!-- end of testimonial section -->
+        </div>
+    </section>
 
-    <!-- blog section -->
     <section class="section" id="blog">
-        <!-- container -->
-        <div class="container text-center">
-            <p class="section-subtitle">Recent Posts?</p>
-            <h6 class="section-title mb-6">Blog</h6>
-            <!-- blog-wrapper -->
-            <div class="blog-card">
-                <div class="blog-card-header">
-                    <img src="assets/imgs/img-1.jpg" class="blog-card-img"
-                        alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+        <div class="container">
+            <p class="section-subtitle text-center">Stay Updated</p>
+            <h6 class="section-title mb-6 text-center">My Recent LinkedIn Posts</h6>
+
+            <!-- LinkedIn Post Card -->
+            <div class="row blog-card align-items-center mb-5">
+                <div class="col-md-7">
+                    <iframe
+                        src="https://www.linkedin.com/embed/feed/update/urn:li:share:7113929902218706944?collapsed=1"
+                        height="500" width="100%" frameborder="0" allowfullscreen=""></iframe>
                 </div>
-                <div class="blog-card-body">
-                    <h5 class="blog-card-title">Consectetur adipisicing elit</h6>
-
-                        <p class="blog-card-caption">
-                            <a href="#">By: Admin</a>
-                            <a href="#"><i class="ti-heart text-danger"></i> 234</a>
-                            <a href="#"><i class="ti-comment"></i> 123</a>
-                        </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nesciunt qui sit velit
-                            delectus voluptates, repellat ipsum culpa id deleniti. Rerum debitis facilis accusantium
-                            neque numquam mollitia modi quasi distinctio.</p>
-
-                        <p><b>Necessitatibus nihil impedit! Ex nisi eveniet, dolor aliquid consequuntur repudiandae.</b>
-                        </p>
-                        <p>Magnam in repellat enim harum omnis aperiam! Explicabo illo, commodi, dolor blanditiis
-                            cupiditate harum nisi vero accusamus laudantium voluptatibus dolores quae obcaecati.</p>
-
-                        <a href="#" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
+                <div class="col-md-5 text-start">
+                    <h4 class="mb-3">🚀 Exciting News: macOS Sonoma Unleashed! 🍏✨</h4>
+                    <p>
+                        Dive into macOS Sonoma, packed with 50+ new features — from customizable widgets 🌈
+                        and FaceTime reactions 🎈 to Safari profiles 🌐, Presenter Overlay 🎥, and iPhone widgets on Mac
+                        📱💻.
+                        Which feature excites you the most?
+                    </p>
+                    <a href="https://www.linkedin.com/posts/chittaranjandas1998_macossonoma-applemagic-techtalks-activity-7113929903154065408-hpkD?utm_source=share&utm_medium=member_desktop&rcm=ACoAACpt5OkB9SAsJlB3JedJxT4fEGssHM8vWJM"
+                        target="_blank" class="btn btn-primary mt-3">Read Full Post</a>
                 </div>
-            </div><!-- end of blog wrapper -->
+            </div>
 
-            <!-- blog-wrapper -->
-            <div class="blog-card">
-                <div class="blog-card-header">
-                    <img src="assets/imgs/img-2.jpg" class="blog-card-img"
-                        alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+            <!-- Second Post -->
+            <div class="row blog-card align-items-center">
+                <div class="col-md-7">
+                    <iframe
+                        src="https://www.linkedin.com/embed/feed/update/urn:li:share:7101236189931667457?collapsed=1"
+                        height="500" width="100%" frameborder="0" allowfullscreen=""></iframe>
                 </div>
-                <div class="blog-card-body">
-                    <h5 class="blog-card-title">Explicabo illo</h6>
-
-                        <p class="blog-card-caption">
-                            <a href="#">By: Admin</a>
-                            <a href="#"><i class="ti-heart text-danger"></i> 456</a>
-                            <a href="#"><i class="ti-comment"></i> 264</a>
-                        </p>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit excepturi laborum enim,
-                            vitae ipsam atque eum, ad iusto consequuntur voluptas, esse doloribus. Perferendis porro
-                            quisquam vitae exercitationem aliquid, minus eos laborum repudiandae, cumque debitis iusto
-                            omnis praesentium? Laborum placeat sit adipisci illum tempore maxime, esse qui quae?
-                            Molestias excepturi corporis similique doloribus. Esse vitae earum architecto nulla non
-                            dolores illum at perspiciatis quod, et deleniti cupiditate reiciendis harum facere, delectus
-                            eum commodi soluta distinctio sit repudiandae possimus sunt. Ipsum, rem.</p>
-
-                        <a href="#" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
+                <div class="col-md-5 text-start">
+                    <h4 class="mb-3">🌕 Chandrayaan-3: India’s Leap in Lunar Exploration</h4>
+                    <p>
+                        Chandrayaan-3 marks a historic milestone for ISRO with a successful landing in the Moon's south
+                        polar region.
+                        Featuring a compact 26kg rover and advanced instruments like LIBS and APXS, this mission aims to
+                        study the Moon’s
+                        surface and enhance our understanding of its composition and seismic activity. 🚀
+                    </p>
+                    <a href="https://www.linkedin.com/posts/chittaranjandas1998_chandrayaan3-spaceexploration-lunarmission-activity-7101236192892846081-0mLS?utm_source=share&utm_medium=member_desktop&rcm=ACoAACpt5OkB9SAsJlB3JedJxT4fEGssHM8vWJM"
+                        target="_blank" class="btn btn-primary mt-3">Read on LinkedIn</a>
                 </div>
-            </div><!-- end of blog wrapper -->
+            </div>
 
-        </div><!-- end of container -->
-    </section><!-- end of blog section -->
+        </div>
+    </section>
 
-    <!-- contact section -->
     <section class="section" id="contact">
-        <div class="container text-center">
-            <p class="section-subtitle">How can you communicate?</p>
-            <h6 class="section-title mb-5">Contact Me</h6>
-            <!-- contact form -->
-            <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
-                <div class="form-row">
-                    <div class="form-group col-sm-6">
-                        <input type="text" size="50" class="form-control" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group col-sm-6">
-                        <input type="email" class="form-control" placeholder="Enter Email" requried>
-                    </div>
-                    <div class="form-group col-sm-12">
-                        <textarea name="comment" id="comment" rows="6" class="form-control"
-                            placeholder="Write Something"></textarea>
-                    </div>
-                    <div class="form-group col-sm-12 mt-3">
-                        <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
-                    </div>
-                </div>
-            </form><!-- end of contact form -->
-        </div><!-- end of container -->
-    </section><!-- end of contact section -->
+        <div class="container text-center py-5">
+            <p class="section-subtitle">Let’s Build Something Cool Together 🚀</p>
+            <h6 class="section-title mb-4">Get in Touch</h6>
+            <p class="mb-5" style="font-size: 1.1rem;">
+                Whether it's a freelance gig, collaboration, or just talking code over coffee, I'm always up for a good
+                conversation.
+                Let’s create something awesome together!
+            </p>
 
-    <!-- footer -->
+            <!-- Quick contact buttons -->
+            <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=chittaranjan1998.das@gmail.com"
+                    class="btn btn-primary rounded-pill px-4 py-2 m-2 shadow-sm" target="_blank">
+                    📧 Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/chittaranjandas1998/" target="_blank"
+                    class="btn btn-outline-primary rounded-pill px-4 py-2 m-2 shadow-sm">
+                    💼 Message on LinkedIn
+                </a>
+                <a href="https://wa.me/917606983009" target="_blank"
+                    class="btn btn-success rounded-pill px-4 py-2 m-2 shadow-sm">
+                    💬 Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+
     <div class="container">
-        <footer class="footer">
+        <footer class="footer d-flex justify-content-between align-items-center">
             <p class="mb-0">Copyright
-                <script>document.write(new Date().getFullYear())</script> &copy; <a
-                    href="http://www.devcrud.com">DevCRUD</a> Distribution <a
-                    href="https://themewagon.com">ThemeWagon</a>
+                <script>document.write(new Date().getFullYear())</script> &copy; <a href="#">MrFreak</a>
             </p>
             <div class="social-links text-right m-auto ml-sm-auto">
-                <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
-                <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
-                <a href="javascript:void(0)" class="link"><i class="ti-google"></i></a>
-                <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a>
-                <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
-                <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
+                <!-- Gmail (opens Gmail compose directly) -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=chittaranjan1998.das@gmail.com" target="_blank"
+                    class="link"><i class="ti-google"></i></a>
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/chittaranjandas1998/" target="_blank" class="link"><i
+                        class="ti-linkedin"></i></a>
             </div>
         </footer>
-    </div> <!-- end of page footer -->
+    </div>
+
 
     <!-- core  -->
-    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+    <script src="assets/js/jquery-3.4.1.js"></script>
+    <script src="assets/js/bootstrap.bundle.js"></script>
 
     <!-- bootstrap 3 affix -->
-    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+    <script src="assets/js/bootstrap.affix.js"></script>
 
     <!-- Meyawo js -->
     <script src="assets/js/index.js"></script>

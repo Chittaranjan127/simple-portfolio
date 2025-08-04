@@ -1,6 +1,6 @@
 // smooth scroll
 $(document).ready(function () {
-    $(".navbar .nav-link").on('click', function (event) {
+    $(".nav .link").on('click', function (event) {
 
         if (this.hash !== "") {
 
