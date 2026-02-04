@@ -173,6 +173,7 @@ a {
   color: #695aa6;
   text-decoration: none;
   background-color: transparent;
+  font-weight: bold;
 }
 
 a:hover {
