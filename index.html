@@ -13,9 +13,29 @@
     </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with Meyawo landing page.">
-    <meta name="author" content="Devcrud">
-    <title>Chittaranjan Das | Portfolio Website</title>
+    <title>Chittaranjan | Portfolio</title>
+    <meta name="description"
+        content="Simple, minimalistic portfolio of Chittaranjan Das, a full stack software developer. Explore projects, experience, and testimonials.">
+    <meta name="author" content="Chittaranjan Das">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://chittaranjan.me/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title"
+        content="simple and minimalistic portfolio | chittaranjan portfolio | software developer portfolio | portfolio with testimonial etc">
+    <meta property="og:description"
+        content="Simple, minimalistic portfolio of Chittaranjan Das, a full stack software developer. Explore projects, experience, and testimonials.">
+    <meta property="og:url" content="https://chittaranjan.me/">
+    <meta property="og:image" content="https://chittaranjan.me/assets/imgs/social-share-img.png">
+    <meta property="og:site_name" content="Chittaranjan Das Portfolio">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+        content="simple and minimalistic portfolio | chittaranjan portfolio | software developer portfolio | portfolio with testimonial etc">
+    <meta name="twitter:description"
+        content="Simple, minimalistic portfolio of Chittaranjan Das, a full stack software developer. Explore projects, experience, and testimonials.">
+    <meta name="twitter:image" content="https://chittaranjan.me/assets/imgs/social-share-img.png">
     <!-- font icons -->
     <link rel="stylesheet" href="assets/css/themify-icons.css">
     <!-- Bootstrap + Meyawo main styles -->
@@ -191,6 +211,22 @@
                     </a>
                 </div>
                 <div class="col-md-4">
+                    <a href="https://attrock.com/" class="portfolio-card" target="_blank">
+                        <img src="assets/imgs/work/attrock.png" class="portfolio-card-img">
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h4>ATTROCK </br> TOOLS</h5>
+                                    <p class="font-weight-normal mb-1">Tech: React, Python, Node JS</p>
+
+                                    <p class="font-weight-light">
+                                        Created the Attrock tools section featuring advanced AI-powered results for
+                                        multiple use cases.
+                                    </p>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+                <div class="col-md-4">
                     <a href="https://apps.apple.com/in/app/the-q-experiences/id6739945297" class="portfolio-card"
                         target="_blank">
                         <img src="assets/imgs/work/q-experiences.png" class="portfolio-card-img">
@@ -208,7 +244,7 @@
                         </span>
                     </a>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3">
                     <a href="https://ggilonline.com/" class="portfolio-card" target="_blank">
                         <img class="portfolio-card-img" src="assets/imgs/work/gail-india.png"
                             class="img-responsive rounded">
@@ -223,7 +259,7 @@
                         </span>
                     </a>
                 </div>
-                <div class="col-md-4 mt-2">
+                <div class="col-md-4 mt-3">
                     <a href="https://chittaranjan127.github.io/portfolio/" class="portfolio-card" target="_blank">
                         <img class="portfolio-card-img" src="assets/imgs/work/portfolio.png"
                             class="img-responsive rounded">
@@ -338,137 +374,198 @@
     <!-- testimonial section -->
     <section class="section" id="testmonial">
         <div class="container text-center">
-            <p class="section-subtitle">What Think Client About Me ?</p>
+            <p class="section-subtitle">What Client Think About Me ?</p>
             <h6 class="section-title mb-6">Testmonial</h6>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="testimonial-card">
-                        <div class="testimonial-card-img-holder">
-                            <img src="assets/imgs/testmonial/akhil_testimonial.jpeg" class="testimonial-card-img"
-                                alt="Client Image">
+            <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-ride="carousel"
+                data-interval="7000">
+                <ol class="carousel-indicators">
+                    <li data-target="#testimonialCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#testimonialCarousel" data-slide-to="1"></li>
+                    <li data-target="#testimonialCarousel" data-slide-to="2"></li>
+                    <li data-target="#testimonialCarousel" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-card-img-holder">
+                                        <img src="assets/imgs/testmonial/shashi_testimonial.jpeg"
+                                            class="testimonial-card-img" alt="Client Image">
+                                    </div>
+                                    <div class="testimonial-card-body">
+                                        <p class="testimonial-card-subtitle">
+                                            Chittaranjan is exceptionally skilled in Spring Boot and backend
+                                            development. He has a great way of turning complex problems into simple,
+                                            reliable solutions. I really admire his dedication to clean code and best
+                                            practices, and he's always willing to help the team improve. A true
+                                            professional and a pleasure to work with. Highly recommended!
+                                        </p>
+                                        <a href="https://www.linkedin.com/in/shashi-prakash-759a4871/" target="_blank">
+                                            <h6 class="testimonial-card-title mb-0">Shashi Prakash</h6>
+                                        </a>
+                                        <p class="text-dark mb-0" style="font-size: 0.9rem;">Director and CEO @
+                                            <a href="https://www.swiftywebagency.com/" target="_blank">Swifty Web
+                                                Agency</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-card-img-holder">
+                                        <img src="assets/imgs/testmonial/akhil_testimonial.jpeg"
+                                            class="testimonial-card-img" alt="Client Image">
+                                    </div>
+                                    <div class="testimonial-card-body">
+                                        <p class="testimonial-card-subtitle">
+                                            I've worked closely with Chittaranjan and consider him a strong asset who
+                                            blends technical expertise with business acumen. He simplifies ambiguous
+                                            problems, drives execution, improves processes, and reliably delivers
+                                            scalable solutions through effective stakeholder and vendor coordination.
+                                        </p>
+                                        <a href="https://www.linkedin.com/in/akhil-jandial/" target="_blank">
+                                            <h6 class="testimonial-card-title mb-0">Akhil Jandial</h6>
+                                        </a>
+                                        <p class="text-dark mb-0" style="font-size: 0.9rem;">Manager II - IT Business
+                                            Applications @
+                                            <a href="https://www.mgmotor.co.in/" target="_blank">MG Motor India</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="testimonial-card-body">
-                            <p class="testimonial-card-subtitle">
-                                I've worked closely with Chittaranjan and consider him a strong asset who blends
-                                technical expertise with business acumen. He simplifies ambiguous problems, drives
-                                execution, improves processes, and reliably delivers scalable solutions through
-                                effective stakeholder and vendor coordination.
-
-                            </p>
-                            <a href="https://www.linkedin.com/in/akhil-jandial/" target="_blank">
-                                <h6 class="testimonial-card-title mb-0">Akhil Jandial</h6>
-                            </a>
-                            <p class="text-dark mb-0" style="font-size: 0.9rem;">Manager II - IT Business Applications @
-                                <a href="https://www.mgmotor.co.in/" target="_blank">MG Motor India</a>
-                            </p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-card-img-holder">
+                                        <img src="assets/imgs/testmonial/shivanjan_testimonial.jpeg"
+                                            class="testimonial-card-img" alt="Client Image">
+                                    </div>
+                                    <div class="testimonial-card-body">
+                                        <p class="testimonial-card-subtitle">
+                                            I've been working with Chittaranjan since college we used to participate in
+                                            many robotics and coding events as a team. He has demonstrated his
+                                            creativity with code and intellect in tough situations and has a proven
+                                            record of not giving up.
+                                        </p>
+                                        <a href="https://www.linkedin.com/in/shivanjan/" target="_blank">
+                                            <h6 class="testimonial-card-title mb-0">Shivanjan Chakravorty</h6>
+                                        </a>
+                                        <p class="text-dark mb-0" style="font-size: 0.9rem;">Senior Software Engineer @
+                                            <a href="https://www.nvidia.com" target="_blank">Nvidia</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-card-img-holder">
+                                        <img src="assets/imgs/testmonial/preeti_testimonial.jpeg"
+                                            class="testimonial-card-img" alt="Client Image">
+                                    </div>
+                                    <div class="testimonial-card-body">
+                                        <p class="testimonial-card-subtitle">
+                                            He knows his job the best. No need to go back &amp; Forth explaining
+                                            things. Always puts in extra effort, leading to smooth project deployment.
+                                        </p>
+                                        <a href="https://www.linkedin.com/in/preeti-saini-00720a50/" target="_blank">
+                                            <h6 class="testimonial-card-title mb-0">Preeti Saini</h6>
+                                        </a>
+                                        <p class="text-dark mb-0" style="font-size: 0.9rem;">Business Owner &amp;
+                                            Founder @ <a href="https://www.lexicmedia.com/"
+                                                target="_blank">LexicMedia</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-card-img-holder">
+                                        <img src="assets/imgs/testmonial/nabeel_testimonial.jpeg"
+                                            class="testimonial-card-img" alt="Client Image">
+                                    </div>
+                                    <div class="testimonial-card-body">
+                                        <p class="testimonial-card-subtitle">
+                                            A rare mix of creative and technical. He translates ideas into smooth,
+                                            functional experiences and often comes up with better solutions than what
+                                            we initially imagined.
+                                        </p>
+                                        <a href="https://www.linkedin.com/in/nabeel-hussain-2488791b5/" target="_blank">
+                                            <h6 class="testimonial-card-title mb-0">Nabeel Hussain</h6>
+                                        </a>
+                                        <p class="text-dark mb-0" style="font-size: 0.9rem;">Head of Design @
+                                            <a href="https://www.98fahren.com/" target="_blank">98 Fahren Inc</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-card-img-holder">
+                                        <img src="assets/imgs/testmonial/anuj_testimonial.jpeg"
+                                            class="testimonial-card-img" alt="Client Image">
+                                    </div>
+                                    <div class="testimonial-card-body">
+                                        <p class="testimonial-card-subtitle">
+                                            Chitranjan is a skilled Java Developer with experience on high-scale
+                                            projects, delivering robust and scalable solutions. He is collaborative,
+                                            dependable, and communicates complex concepts clearly.
+                                        </p>
+                                        <a href="https://www.linkedin.com/in/anuj-choudhary/" target="_blank">
+                                            <h6 class="testimonial-card-title mb-0">Anuj Choudhary</h6>
+                                        </a>
+                                        <p class="text-dark mb-0" style="font-size: 0.9rem;">Engineering Manager &amp;
+                                            AI Architect @
+                                            <a href="https://www.spyne.ai/" target="_blank">Spyne</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-card-img-holder">
+                                        <img src="assets/imgs/testmonial/nikhil_testimonial.png"
+                                            class="testimonial-card-img" alt="Client Image">
+                                    </div>
+                                    <div class="testimonial-card-body">
+                                        <p class="testimonial-card-subtitle">
+                                            Chittaranjan is a hard-working and sincere guy. We work in different teams
+                                            but he is always ready to help. He is very professional and very passionate
+                                            about his work. He can be a valuable asset to any organization.
+                                        </p>
+                                        <a href="https://www.linkedin.com/in/nikhil2k95/" target="_blank">
+                                            <h6 class="testimonial-card-title mb-0">Nikhil Singh</h6>
+                                        </a>
+                                        <p class="text-dark mb-0" style="font-size: 0.9rem;">Senior SEO &amp; Growth
+                                            Marketing Strategist @
+                                            <a href="https://kanerika.com/" target="_blank">Kanerika Inc</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="testimonial-card">
-                        <div class="testimonial-card-img-holder">
-                            <img src="assets/imgs/testmonial/shivanjan_testimonial.jpeg" class="testimonial-card-img"
-                                alt="Client Image">
-                        </div>
-                        <div class="testimonial-card-body">
-                            <p class="testimonial-card-subtitle">
-                                I've been working with Chittaranjan since college we used to participate in many
-                                robotics and coding events as a team. He has demonstrated his creativity with code and
-                                intellect in tough situations and has a proven record of not giving up.
-                            </p>
-                            <a href="https://www.linkedin.com/in/shivanjan/" target="_blank">
-                                <h6 class="testimonial-card-title mb-0">Shivanjan Chakravorty</h6>
-                            </a>
-                            <p class="text-dark mb-0" style="font-size: 0.9rem;">Senior Software Engineer @
-                                <a href="https://www.nvidia.com" target="_blank">Nvidia</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="testimonial-card">
-                        <div class="testimonial-card-img-holder">
-                            <img src="assets/imgs/testmonial/preeti_testimonial.jpeg" class="testimonial-card-img"
-                                alt="Client Image">
-                        </div>
-                        <div class="testimonial-card-body">
-                            <p class="testimonial-card-subtitle">
-                                He knows his job the best. No need to go back & Forth explaining things. Always puts in
-                                extra effort, leading to smooth project deployment.
-                            </p>
-                            <a href="https://www.linkedin.com/in/preeti-saini-00720a50/" target="_blank">
-                                <h6 class="testimonial-card-title mb-0">Preeti Saini</h6>
-                            </a>
-                            <p class="text-dark mb-0" style="font-size: 0.9rem;">Business Owner & Founder @ <a
-                                    href="https://www.lexicmedia.com/" target="_blank">LexicMedia</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="testimonial-card">
-                        <div class="testimonial-card-img-holder">
-                            <img src="assets/imgs/testmonial/nabeel_testimonial.jpeg" class="testimonial-card-img"
-                                alt="Client Image">
-                        </div>
-                        <div class="testimonial-card-body">
-                            <p class="testimonial-card-subtitle">
-                                A rare mix of creative and technical. He translates ideas into smooth, functional
-                                experiences and often comes up with better solutions than what we initially imagined.
-                            </p>
-                            <a href="https://www.linkedin.com/in/nabeel-hussain-2488791b5/" target="_blank">
-                                <h6 class="testimonial-card-title mb-0">Nabeel Hussain</h6>
-                            </a>
-                            <p class="text-dark mb-0" style="font-size: 0.9rem;">Head of Design @ <a
-                                    href="https://www.98fahren.com/" target="_blank">98 Fahren Inc</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="testimonial-card">
-                        <div class="testimonial-card-img-holder">
-                            <img src="assets/imgs/testmonial/anuj_testimonial.jpeg" class="testimonial-card-img"
-                                alt="Client Image">
-                        </div>
-                        <div class="testimonial-card-body">
-                            <p class="testimonial-card-subtitle">
-                                Chitranjan is a skilled Java Developer with experience on high-scale projects,
-                                delivering robust and scalable solutions. He is collaborative, dependable, and
-                                communicates complex concepts clearly.
-                            </p>
-                            <a href="https://www.linkedin.com/in/anuj-choudhary/" target="_blank">
-                                <h6 class="testimonial-card-title mb-0">Anuj Choudhary</h6>
-                            </a>
-                            <p class="text-dark mb-0" style="font-size: 0.9rem;">Engineering Manager & AI Architect @
-                                <a href="https://www.spyne.ai/" target="_blank">Spyne</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="testimonial-card">
-                        <div class="testimonial-card-img-holder">
-                            <img src="assets/imgs/testmonial/nikhil_testimonial.png" class="testimonial-card-img"
-                                alt="Client Image">
-                        </div>
-                        <div class="testimonial-card-body">
-                            <p class="testimonial-card-subtitle">
-                                Chittaranjan is a hard-working and sincere guy. We work in different teams but he is
-                                always ready to help. He is very professional and very passionate about his work. He can
-                                be a valuable asset to any organization.
-                            </p>
-                            <a href="https://www.linkedin.com/in/nikhil2k95/" target="_blank">
-                                <h6 class="testimonial-card-title mb-0">Nikhil Singh</h6>
-                            </a>
-                            <p class="text-dark mb-0" style="font-size: 0.9rem;">Senior SEO & Growth Marketing
-                                Strategist @
-                                <a href="https://kanerika.com/" target="_blank">Kanerika Inc</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
     </section>
