@@ -47,7 +47,43 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body id="top">
+<body id="top" class="loading">
+
+    <!-- ============ SPLASH SCREEN ============ -->
+    <div class="splash" id="splash">
+        <canvas class="splash-matrix" id="splashMatrix"></canvas>
+        <div class="splash-scanline"></div>
+        <div class="splash-vignette"></div>
+
+        <div class="splash-hud">
+            <!-- Spinning rings -->
+            <div class="hud-rings">
+                <div class="hud-ring hud-ring--outer"></div>
+                <div class="hud-ring hud-ring--middle"></div>
+                <div class="hud-ring hud-ring--inner"></div>
+            </div>
+
+            <!-- Center logo -->
+            <div class="hud-center">
+                <span class="hud-logo"><span class="hud-bracket">{</span>CD<span class="hud-bracket">}</span></span>
+            </div>
+
+            <!-- Status text below rings -->
+            <div class="hud-status">
+                <p class="hud-text hud-text--1">SYSTEM BOOT</p>
+                <div class="hud-progress">
+                    <div class="hud-progress-fill"></div>
+                </div>
+                <p class="hud-text hud-text--2" id="hudStatusText">Initializing...</p>
+            </div>
+
+            <!-- Corner HUD decorations -->
+            <div class="hud-corner hud-corner--tl"></div>
+            <div class="hud-corner hud-corner--tr"></div>
+            <div class="hud-corner hud-corner--bl"></div>
+            <div class="hud-corner hud-corner--br"></div>
+        </div>
+    </div>
 
     <!-- ============ CUSTOM CURSOR (Terminal Block) ============ -->
     <div class="cursor-block" aria-hidden="true"></div>

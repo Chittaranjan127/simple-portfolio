@@ -14,6 +14,78 @@
     // Disable right-click context menu
     document.addEventListener('contextmenu', (e) => e.preventDefault());
 
+    /* ---------- SPLASH SCREEN ---------- */
+    const splash = document.getElementById('splash');
+    if (splash) {
+        const statusText = document.getElementById('hudStatusText');
+        const statusMessages = [
+            'Initializing...',
+            'Loading modules...',
+            'Compiling assets...',
+            'Connecting...',
+            'Ready.'
+        ];
+
+        /* -- Matrix rain (instant) -- */
+        const sCanvas = document.getElementById('splashMatrix');
+        var splashRaf = null;
+        if (sCanvas) {
+            const sCtx = sCanvas.getContext('2d');
+            const fs = 15;
+            const chars = '01{}[]<>$#@=+-*&|~ABCDEFabcdef'.split('');
+            sCanvas.width = window.innerWidth;
+            sCanvas.height = window.innerHeight;
+            const cols = Math.floor(sCanvas.width / fs);
+            const drops = Array.from({ length: cols }, () => Math.random() * (sCanvas.height / fs));
+
+            function drawMatrix() {
+                sCtx.fillStyle = 'rgba(3, 3, 8, 0.1)';
+                sCtx.fillRect(0, 0, sCanvas.width, sCanvas.height);
+                sCtx.font = fs + 'px monospace';
+                for (let i = 0; i < drops.length; i++) {
+                    const c = chars[Math.floor(Math.random() * chars.length)];
+                    const b = Math.random();
+                    sCtx.fillStyle = b > 0.85 ? '#4ade80' : b > 0.5 ? '#22c55e' : '#14532d';
+                    sCtx.fillText(c, i * fs, drops[i] * fs);
+                    if (drops[i] * fs > sCanvas.height && Math.random() > 0.975) drops[i] = 0;
+                    drops[i] += 0.6 + Math.random() * 0.3;
+                }
+                splashRaf = requestAnimationFrame(drawMatrix);
+            }
+            splashRaf = requestAnimationFrame(drawMatrix);
+        }
+
+        /* -- Cycle status messages -- */
+        let msgIndex = 0;
+        const msgInterval = setInterval(() => {
+            msgIndex++;
+            if (statusText && msgIndex < statusMessages.length) {
+                statusText.textContent = statusMessages[msgIndex];
+            }
+        }, 450);
+
+        /* -- Dismiss at 2.5s -- */
+        setTimeout(() => {
+            clearInterval(msgInterval);
+            if (statusText) statusText.textContent = 'Ready.';
+
+            // Blue flash
+            const flash = document.createElement('div');
+            flash.className = 'splash-flash';
+            splash.appendChild(flash);
+
+            // Stop matrix
+            if (splashRaf) cancelAnimationFrame(splashRaf);
+
+            setTimeout(() => {
+                splash.classList.add('done');
+                document.body.classList.remove('loading');
+            }, 150);
+
+            setTimeout(() => { splash.remove(); }, 800);
+        }, 2500);
+    }
+
     /* ---------- SCROLL REVEAL (Intersection Observer) ---------- */
     const revealElements = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver(
