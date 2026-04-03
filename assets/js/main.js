@@ -14,9 +14,18 @@
     // Disable right-click context menu
     document.addEventListener('contextmenu', (e) => e.preventDefault());
 
-    /* ---------- SPLASH SCREEN ---------- */
+    /* ---------- SPLASH SCREEN (once per session) ---------- */
     const splash = document.getElementById('splash');
-    if (splash) {
+    const splashShown = sessionStorage.getItem('splashShown');
+
+    if (splash && splashShown) {
+        // Already shown this session — remove immediately
+        splash.remove();
+        document.body.classList.remove('loading');
+    }
+
+    if (splash && !splashShown) {
+        sessionStorage.setItem('splashShown', '1');
         const statusText = document.getElementById('hudStatusText');
         const statusMessages = [
             'Initializing...',
@@ -209,7 +218,7 @@
             w = canvas.width = canvas.offsetWidth;
             h = canvas.height = canvas.offsetHeight;
             columns = Math.floor(w / fontSize);
-            drops = Array.from({ length: columns }, () => Math.random() * -100);
+            drops = Array.from({ length: columns }, () => Math.random() * (h / fontSize));
         }
 
         initMatrix();
