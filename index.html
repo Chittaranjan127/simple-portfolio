@@ -8,693 +8,875 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-K7QKDDW49H');
     </script>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Chittaranjan | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chittaranjan Das — Senior Software Engineer</title>
     <meta name="description"
-        content="Simple, minimalistic portfolio of Chittaranjan Das, a full stack software developer. Explore projects, experience, and testimonials.">
+        content="Portfolio of Chittaranjan Das, a Senior Software Engineer with 7+ years building scalable web applications, IVR systems, and enterprise software.">
     <meta name="author" content="Chittaranjan Das">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://chittaranjan.me/">
 
     <meta property="og:type" content="website">
-    <meta property="og:title"
-        content="simple and minimalistic portfolio | chittaranjan portfolio | software developer portfolio | portfolio with testimonial etc">
+    <meta property="og:title" content="Chittaranjan Das — Senior Software Engineer Portfolio">
     <meta property="og:description"
-        content="Simple, minimalistic portfolio of Chittaranjan Das, a full stack software developer. Explore projects, experience, and testimonials.">
+        content="Portfolio of Chittaranjan Das, a Senior Software Engineer. Explore projects, experience, and testimonials.">
     <meta property="og:url" content="https://chittaranjan.me/">
     <meta property="og:image" content="https://chittaranjan.me/assets/imgs/social-share-img.png">
     <meta property="og:site_name" content="Chittaranjan Das Portfolio">
     <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title"
-        content="simple and minimalistic portfolio | chittaranjan portfolio | software developer portfolio | portfolio with testimonial etc">
+    <meta name="twitter:title" content="Chittaranjan Das — Senior Software Engineer Portfolio">
     <meta name="twitter:description"
-        content="Simple, minimalistic portfolio of Chittaranjan Das, a full stack software developer. Explore projects, experience, and testimonials.">
+        content="Portfolio of Chittaranjan Das, a Senior Software Engineer. Explore projects, experience, and testimonials.">
     <meta name="twitter:image" content="https://chittaranjan.me/assets/imgs/social-share-img.png">
-    <!-- font icons -->
-    <link rel="stylesheet" href="assets/css/themify-icons.css">
-    <link rel="stylesheet" href="assets/css/vendor/salient-fonts-local.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        referrerpolicy="no-referrer">
-    <!-- Bootstrap + Meyawo main styles -->
-    <link rel="stylesheet" href="assets/css/index.css">
+
     <link rel="icon" type="image/x-icon" href="assets/imgs/favicon.ico">
 
+    <!-- Fonts: Syne (display), DM Sans (body), JetBrains Mono (code accents) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+<body id="top">
 
-    <!-- Page Navbar -->
-    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
-        <div class="container">
-            <a class="logo" href="#">CD</a>
-            <ul class="nav">
-                <li class="item">
-                    <a class="link" href="#home">Home</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#about">About</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#service">Experiences</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#portfolio">Works</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#testmonial">Testmonial</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#blog">Posts</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#contact">Contact</a>
-                </li>
+    <!-- ============ CUSTOM CURSOR (Terminal Block) ============ -->
+    <div class="cursor-block" aria-hidden="true"></div>
+
+    <!-- ============ NAVBAR (Terminal Style) ============ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#top" class="nav-logo">
+                <span class="logo-bracket">{</span>CD<span class="logo-bracket">}</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" class="nav-link"><span class="nav-link-prefix">01.</span>about</a></li>
+                <li><a href="#experience" class="nav-link"><span class="nav-link-prefix">02.</span>experience</a></li>
+                <li><a href="#projects" class="nav-link"><span class="nav-link-prefix">03.</span>projects</a></li>
+                <li><a href="#skills" class="nav-link"><span class="nav-link-prefix">04.</span>skills</a></li>
+                <li><a href="#testimonials" class="nav-link"><span class="nav-link-prefix">05.</span>testimonials</a></li>
+                <li><a href="#contact" class="nav-link nav-link--cta"><span class="nav-cmd-arrow">&#10132;</span>contact</a></li>
             </ul>
-            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
-                <div class="hamburger-box">
-                    <div class="hamburger-inner"></div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+        <canvas class="matrix-rain" id="matrixRain" aria-hidden="true"></canvas>
+        <div class="hero-noise" aria-hidden="true"></div>
+
+        <div class="container hero-terminal-wrap">
+            <div class="hero-term reveal">
+                <!-- Terminal chrome -->
+                <div class="hero-term-bar">
+                    <div class="hero-term-dots">
+                        <span class="tdot tdot--r"></span>
+                        <span class="tdot tdot--y"></span>
+                        <span class="tdot tdot--g"></span>
+                    </div>
+                    <span class="hero-term-title">chittaranjan@dev ~ </span>
+                    <div class="hero-term-actions-bar">
+                        <span class="hero-term-tab hero-term-tab--active">zsh</span>
+                    </div>
                 </div>
+
+                <!-- Terminal body -->
+                <div class="hero-term-body">
+                    <!-- Line 1: whoami -->
+                    <div class="tline tline--typed" style="--delay: 0">
+                        <span class="tprompt">~</span>
+                        <span class="tarrow">&#10132;</span>
+                        <span class="tcmd">whoami</span>
+                    </div>
+
+                    <!-- ASCII name output -->
+                    <div class="tline tline--output tline--ascii" style="--delay: 1">
+<pre class="ascii-name" aria-label="Chittaranjan Das">
+  ____ _     _ _   _                         _
+ / ___| |__ (_) |_| |_ __ _ _ __ __ _ _ __  (_) __ _ _ __
+| |   | '_ \| | __| __/ _` | '__/ _` | '_ \ | |/ _` | '_ \
+| |___| | | | | |_| || (_| | | | (_| | | | || | (_| | | | |
+ \____|_| |_|_|\__|\__\__,_|_|  \__,_|_| |_|/ |\__,_|_| |_|
+                                           |__/         Das.</pre>
+                    </div>
+
+                    <!-- Line 2: role -->
+                    <div class="tline tline--typed" style="--delay: 2">
+                        <span class="tprompt">~</span>
+                        <span class="tarrow">&#10132;</span>
+                        <span class="tcmd">cat role.txt</span>
+                    </div>
+                    <div class="tline tline--output tline--highlight" style="--delay: 3">
+                        Senior Software Engineer &bull; 7+ years &bull; Gurgaon, India
+                    </div>
+
+                    <!-- Line 3: stack -->
+                    <div class="tline tline--typed" style="--delay: 4">
+                        <span class="tprompt">~</span>
+                        <span class="tarrow">&#10132;</span>
+                        <span class="tcmd">echo $STACK</span>
+                    </div>
+                    <div class="tline tline--output tline--tags" style="--delay: 5">
+                        <span class="ttag">Java</span>
+                        <span class="ttag">Spring Boot</span>
+                        <span class="ttag">Node.js</span>
+                        <span class="ttag">React</span>
+                        <span class="ttag">Angular</span>
+                        <span class="ttag">AWS</span>
+                        <span class="ttag">Python</span>
+                        <span class="ttag">Flutter</span>
+                    </div>
+
+                    <!-- Line 4: about -->
+                    <div class="tline tline--typed" style="--delay: 6">
+                        <span class="tprompt">~</span>
+                        <span class="tarrow">&#10132;</span>
+                        <span class="tcmd">cat about.md <span class="tpipe">| head -2</span></span>
+                    </div>
+                    <div class="tline tline--output tline--bio" style="--delay: 7">
+                        I build things for the web — from enterprise telecom systems<br>
+                        to payment platforms. Currently shipping at <span class="thl">SNUG Technologies</span>.
+                    </div>
+
+                    <!-- Line 5: status -->
+                    <div class="tline tline--typed" style="--delay: 8">
+                        <span class="tprompt">~</span>
+                        <span class="tarrow">&#10132;</span>
+                        <span class="tcmd">echo $STATUS</span>
+                    </div>
+                    <div class="tline tline--output tline--status" style="--delay: 9">
+                        <span class="tstatus-dot"></span> Open to new opportunities
+                    </div>
+
+                    <!-- Line 6: links -->
+                    <div class="tline tline--typed" style="--delay: 10">
+                        <span class="tprompt">~</span>
+                        <span class="tarrow">&#10132;</span>
+                        <span class="tcmd">ls ./links</span>
+                    </div>
+                    <div class="tline tline--output tline--links" style="--delay: 11">
+                        <a href="#projects" class="tlink">
+                            <i data-lucide="folder" class="tlink-icon"></i>
+                            <span>projects/</span>
+                        </a>
+                        <a href="assets/resume/chittaranjan_resume.pdf" class="tlink" download>
+                            <i data-lucide="file-text" class="tlink-icon"></i>
+                            <span>resume.pdf</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/chittaranjandas1998" target="_blank" rel="noopener" class="tlink">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tlink-icon"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                            <span>linkedin</span>
+                        </a>
+                        <a href="https://github.com/Chittaranjan127" target="_blank" rel="noopener" class="tlink">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tlink-icon"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                            <span>github</span>
+                        </a>
+                        <a href="mailto:chittaranjan1998.das@gmail.com" class="tlink">
+                            <i data-lucide="mail" class="tlink-icon"></i>
+                            <span>email</span>
+                        </a>
+                    </div>
+
+                    <!-- Blinking cursor line -->
+                    <div class="tline tline--typed tline--active" style="--delay: 12">
+                        <span class="tprompt">~</span>
+                        <span class="tarrow">&#10132;</span>
+                        <span class="tcursor">&#9608;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll-indicator reveal reveal--delay-5">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-label reveal">
+                <span class="section-number">01</span>
+                <span class="section-line"></span>
+                <span>About</span>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-image-col reveal">
+                    <div class="about-image-wrapper">
+                        <img src="assets/imgs/man.png" alt="Chittaranjan Das" class="about-image" loading="lazy" width="400" height="400">
+                        <div class="about-image-border"></div>
+                        <div class="about-image-badge">
+                            <span class="experience-number">7+</span>
+                            <span class="experience-label">Years<br>Experience</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-text-col">
+                    <h2 class="section-heading reveal">
+                        Crafting software that<br>
+                        <span class="heading-accent">solves real problems.</span>
+                    </h2>
+                    <p class="about-paragraph reveal">
+                        I'm a Senior Software Engineer based in Gurgaon, India, with expertise spanning web applications, IVR systems, and enterprise software. My toolbox includes Java, JavaScript, and Agile methodologies.
+                    </p>
+                    <p class="about-paragraph reveal">
+                        Currently at <strong>SNUG Technologies</strong>, I lead the development of scalable, reliable solutions while collaborating closely with cross-functional teams and clients to align technical delivery with business needs.
+                    </p>
+                    <p class="about-paragraph reveal">
+                        Passionate about continuous learning and exploring new technologies, I aim to create impactful digital experiences that make a difference.
+                    </p>
+                    <div class="about-highlights reveal">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i data-lucide="briefcase"></i>
+                            </div>
+                            <div class="highlight-text">
+                                <span class="highlight-value">7+ years</span>
+                                <span class="highlight-label">in enterprise software, telecom &amp; web apps</span>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i data-lucide="layers"></i>
+                            </div>
+                            <div class="highlight-text">
+                                <span class="highlight-value">Full Stack</span>
+                                <span class="highlight-label">Java, Spring Boot, Node.js, React, Angular, AWS</span>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i data-lucide="users"></i>
+                            </div>
+                            <div class="highlight-text">
+                                <span class="highlight-value">UIDAI, bKash, BNI</span>
+                                <span class="highlight-label">among clients I've delivered for</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section section--dark" id="experience">
+        <div class="container">
+            <div class="section-label reveal">
+                <span class="section-number">02</span>
+                <span class="section-line"></span>
+                <span>Experience</span>
+            </div>
+
+            <h2 class="section-heading reveal">
+                Where I've <span class="heading-accent">worked.</span>
+            </h2>
+
+            <div class="timeline">
+                <!-- SNUG -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot timeline-dot--active"></div>
+                        <div class="timeline-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-company-info">
+                                <img src="assets/imgs/companies/snug.jpeg" alt="SNUG" class="timeline-logo" loading="lazy" width="48" height="48">
+                                <div>
+                                    <h3 class="timeline-company">SNUG Technologies</h3>
+                                    <p class="timeline-role">Senior Software Developer</p>
+                                </div>
+                            </div>
+                            <span class="timeline-date">
+                                <i data-lucide="calendar" class="icon-sm"></i>
+                                Apr 2021 — Present
+                            </span>
+                        </div>
+                        <p class="timeline-description">
+                            Building robust software solutions for clients like UIDAI, MP112, Bengaluru Safe City, BNI, and bKash. Developing telecom products including ECHI data visualizer, number masking solutions, and CCXML-based outbound call systems.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">AWS</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Telecom</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SPYNE -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-company-info">
+                                <img src="assets/imgs/companies/spyne.webp" alt="SPYNE" class="timeline-logo" loading="lazy" width="48" height="48">
+                                <div>
+                                    <h3 class="timeline-company">Spyne.ai</h3>
+                                    <p class="timeline-role">Software Engineer</p>
+                                </div>
+                            </div>
+                            <span class="timeline-date">
+                                <i data-lucide="calendar" class="icon-sm"></i>
+                                Sep 2019 — Sep 2020
+                            </span>
+                        </div>
+                        <p class="timeline-description">
+                            Developed interactive web applications, integrated automated payment gateway systems, built internal CRM reports for product tracking, and created public APIs for on-demand service integration.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">SEO</span>
+                            <span class="tag">APIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EVENTILA -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-company-info">
+                                <img src="assets/imgs/companies/eventila.jpeg" alt="EVENTILA" class="timeline-logo" loading="lazy" width="48" height="48">
+                                <div>
+                                    <h3 class="timeline-company">Eventila</h3>
+                                    <p class="timeline-role">Associate Software Engineer</p>
+                                </div>
+                            </div>
+                            <span class="timeline-date">
+                                <i data-lucide="calendar" class="icon-sm"></i>
+                                Jun 2019 — Sep 2019
+                            </span>
+                        </div>
+                        <p class="timeline-description">
+                            Collaborated with developers and designers to build the company landing page and delivered technical solutions aligned with product features and requirements.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-label reveal">
+                <span class="section-number">03</span>
+                <span class="section-line"></span>
+                <span>Projects</span>
+            </div>
+
+            <h2 class="section-heading reveal">
+                Selected <span class="heading-accent">work.</span>
+            </h2>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <a href="https://www.hypepay.live/" target="_blank" rel="noopener" class="project-card project-card--featured reveal">
+                    <div class="project-card-image">
+                        <img src="assets/imgs/work/hypepay-live.png" alt="Hypepay Live Platform" loading="lazy" width="600" height="400">
+                        <div class="project-card-overlay">
+                            <i data-lucide="arrow-up-right" class="project-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-card-tags">
+                            <span class="tag tag--small">Angular</span>
+                            <span class="tag tag--small">Node.js</span>
+                            <span class="tag tag--small">AWS</span>
+                            <span class="tag tag--small">RazorPay</span>
+                        </div>
+                        <h3 class="project-card-title">Hypepay Live Platform</h3>
+                        <p class="project-card-desc">A unified platform for streamers and creators to enable payment notifications on live streams with various channel overlays and widgets.</p>
+                    </div>
+                </a>
+
+                <!-- Project 2 -->
+                <a href="https://attrock.com/" target="_blank" rel="noopener" class="project-card reveal">
+                    <div class="project-card-image">
+                        <img src="assets/imgs/work/attrock.png" alt="Attrock Tools" loading="lazy" width="600" height="400">
+                        <div class="project-card-overlay">
+                            <i data-lucide="arrow-up-right" class="project-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-card-tags">
+                            <span class="tag tag--small">React</span>
+                            <span class="tag tag--small">Python</span>
+                            <span class="tag tag--small">Node.js</span>
+                        </div>
+                        <h3 class="project-card-title">Attrock Tools</h3>
+                        <p class="project-card-desc">AI-powered tools section featuring advanced results for multiple use cases.</p>
+                    </div>
+                </a>
+
+                <!-- Project 3 -->
+                <a href="https://apps.apple.com/in/app/the-q-experiences/id6739945297" target="_blank" rel="noopener" class="project-card reveal">
+                    <div class="project-card-image">
+                        <img src="assets/imgs/work/q-experiences.png" alt="The Q Experiences App" loading="lazy" width="600" height="400">
+                        <div class="project-card-overlay">
+                            <i data-lucide="arrow-up-right" class="project-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-card-tags">
+                            <span class="tag tag--small">Flutter</span>
+                            <span class="tag tag--small">Firebase</span>
+                            <span class="tag tag--small">Node.js</span>
+                        </div>
+                        <h3 class="project-card-title">The Q Experiences</h3>
+                        <p class="project-card-desc">Cross-platform travel app for tracking journeys, storing documents offline, and connecting with fellow passengers.</p>
+                    </div>
+                </a>
+
+                <!-- Project 4 -->
+                <a href="https://ggilonline.com/" target="_blank" rel="noopener" class="project-card reveal">
+                    <div class="project-card-image">
+                        <img src="assets/imgs/work/gail-india.png" alt="GAIL India Website" loading="lazy" width="600" height="400">
+                        <div class="project-card-overlay">
+                            <i data-lucide="arrow-up-right" class="project-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-card-tags">
+                            <span class="tag tag--small">HTML5</span>
+                            <span class="tag tag--small">Bootstrap</span>
+                            <span class="tag tag--small">JavaScript</span>
+                        </div>
+                        <h3 class="project-card-title">GAIL India Website</h3>
+                        <p class="project-card-desc">Responsive, multilingual corporate website optimized for performance and accessibility.</p>
+                    </div>
+                </a>
+
+                <!-- Project 5 -->
+                <a href="https://chittaranjan127.github.io/portfolio/" target="_blank" rel="noopener" class="project-card reveal">
+                    <div class="project-card-image">
+                        <img src="assets/imgs/work/portfolio.png" alt="Portfolio Website" loading="lazy" width="600" height="400">
+                        <div class="project-card-overlay">
+                            <i data-lucide="arrow-up-right" class="project-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-card-tags">
+                            <span class="tag tag--small">Angular</span>
+                            <span class="tag tag--small">AWS</span>
+                        </div>
+                        <h3 class="project-card-title">Portfolio Website</h3>
+                        <p class="project-card-desc">Clean, responsive portfolio showcasing projects, experiences, and professional journey.</p>
+                    </div>
+                </a>
+
+                <!-- Project 6 -->
+                <a href="https://prarthanadalai.github.io/prarthana-portfolio/" target="_blank" rel="noopener" class="project-card reveal">
+                    <div class="project-card-image">
+                        <img src="assets/imgs/work/portfolio-1.png" alt="Customer Portfolio" loading="lazy" width="600" height="400">
+                        <div class="project-card-overlay">
+                            <i data-lucide="arrow-up-right" class="project-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-card-tags">
+                            <span class="tag tag--small">HTML</span>
+                            <span class="tag tag--small">Bootstrap</span>
+                            <span class="tag tag--small">AWS</span>
+                        </div>
+                        <h3 class="project-card-title">Client Portfolio</h3>
+                        <p class="project-card-desc">Custom portfolio site built for a client to showcase their work and professional journey.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section section--dark" id="skills">
+        <div class="container">
+            <div class="section-label reveal">
+                <span class="section-number">04</span>
+                <span class="section-line"></span>
+                <span>Skills</span>
+            </div>
+
+            <h2 class="section-heading reveal">
+                My <span class="heading-accent">tech stack.</span>
+            </h2>
+
+            <div class="skills-grid">
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <div class="skill-icon-wrapper">
+                            <i data-lucide="monitor" class="skill-icon"></i>
+                        </div>
+                        <h3 class="skill-category-title">Frontend</h3>
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-chip">HTML5</span>
+                        <span class="skill-chip">CSS3</span>
+                        <span class="skill-chip">Bootstrap</span>
+                        <span class="skill-chip">Angular</span>
+                        <span class="skill-chip">React</span>
+                        <span class="skill-chip">Dart / Flutter</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <div class="skill-icon-wrapper">
+                            <i data-lucide="server" class="skill-icon"></i>
+                        </div>
+                        <h3 class="skill-category-title">Backend</h3>
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-chip">Java</span>
+                        <span class="skill-chip">Spring Boot</span>
+                        <span class="skill-chip">Node.js</span>
+                        <span class="skill-chip">Python</span>
+                        <span class="skill-chip">REST APIs</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <div class="skill-icon-wrapper">
+                            <i data-lucide="cloud" class="skill-icon"></i>
+                        </div>
+                        <h3 class="skill-category-title">Cloud & DevOps</h3>
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-chip">Linux</span>
+                        <span class="skill-chip">AWS</span>
+                        <span class="skill-chip">Google Cloud</span>
+                        <span class="skill-chip">Azure</span>
+                        <span class="skill-chip">Docker</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <div class="skill-icon-wrapper">
+                            <i data-lucide="wrench" class="skill-icon"></i>
+                        </div>
+                        <h3 class="skill-category-title">Tools & Others</h3>
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-chip">Git</span>
+                        <span class="skill-chip">Figma</span>
+                        <span class="skill-chip">WordPress</span>
+                        <span class="skill-chip">Shopify</span>
+                        <span class="skill-chip">Canva</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="section-label reveal">
+                <span class="section-number">05</span>
+                <span class="section-line"></span>
+                <span>Testimonials</span>
+            </div>
+
+            <h2 class="section-heading reveal">
+                What people <span class="heading-accent">say.</span>
+            </h2>
+
+            <div class="testimonials-track" id="testimonialTrack">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-quote" aria-hidden="true">
+                        <i data-lucide="quote"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        Chittaranjan is exceptionally skilled in Spring Boot and backend development. He has a great way of turning complex problems into simple, reliable solutions. A true professional and a pleasure to work with.
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="assets/imgs/testmonial/shashi_testimonial.jpeg" alt="Shashi Prakash" class="testimonial-avatar" loading="lazy" width="48" height="48">
+                        <div>
+                            <a href="https://www.linkedin.com/in/shashi-prakash-759a4871/" target="_blank" rel="noopener" class="testimonial-name">Shashi Prakash</a>
+                            <p class="testimonial-position">Director & CEO @ <a href="https://www.swiftywebagency.com/" target="_blank" rel="noopener">Swifty Web Agency</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-quote" aria-hidden="true">
+                        <i data-lucide="quote"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        I've worked closely with Chittaranjan and consider him a strong asset who blends technical expertise with business acumen. He simplifies ambiguous problems and reliably delivers scalable solutions.
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="assets/imgs/testmonial/akhil_testimonial.jpeg" alt="Akhil Jandial" class="testimonial-avatar" loading="lazy" width="48" height="48">
+                        <div>
+                            <a href="https://www.linkedin.com/in/akhil-jandial/" target="_blank" rel="noopener" class="testimonial-name">Akhil Jandial</a>
+                            <p class="testimonial-position">Manager II - IT @ <a href="https://www.mgmotor.co.in/" target="_blank" rel="noopener">MG Motor India</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-quote" aria-hidden="true">
+                        <i data-lucide="quote"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        I've been working with Chittaranjan since college. He has demonstrated his creativity with code and intellect in tough situations and has a proven record of not giving up.
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="assets/imgs/testmonial/shivanjan_testimonial.jpeg" alt="Shivanjan Chakravorty" class="testimonial-avatar" loading="lazy" width="48" height="48">
+                        <div>
+                            <a href="https://www.linkedin.com/in/shivanjan/" target="_blank" rel="noopener" class="testimonial-name">Shivanjan Chakravorty</a>
+                            <p class="testimonial-position">Senior Software Engineer @ <a href="https://www.nvidia.com" target="_blank" rel="noopener">Nvidia</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-quote" aria-hidden="true">
+                        <i data-lucide="quote"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        He knows his job the best. No need to go back & forth explaining things. Always puts in extra effort, leading to smooth project deployment.
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="assets/imgs/testmonial/preeti_testimonial.jpeg" alt="Preeti Saini" class="testimonial-avatar" loading="lazy" width="48" height="48">
+                        <div>
+                            <a href="https://www.linkedin.com/in/preeti-saini-00720a50/" target="_blank" rel="noopener" class="testimonial-name">Preeti Saini</a>
+                            <p class="testimonial-position">Founder @ <a href="https://www.lexicmedia.com/" target="_blank" rel="noopener">LexicMedia</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-quote" aria-hidden="true">
+                        <i data-lucide="quote"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        A rare mix of creative and technical. He translates ideas into smooth, functional experiences and often comes up with better solutions than what we initially imagined.
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="assets/imgs/testmonial/nabeel_testimonial.jpeg" alt="Nabeel Hussain" class="testimonial-avatar" loading="lazy" width="48" height="48">
+                        <div>
+                            <a href="https://www.linkedin.com/in/nabeel-hussain-2488791b5/" target="_blank" rel="noopener" class="testimonial-name">Nabeel Hussain</a>
+                            <p class="testimonial-position">Head of Design @ <a href="https://www.98fahren.com/" target="_blank" rel="noopener">98 Fahren Inc</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-quote" aria-hidden="true">
+                        <i data-lucide="quote"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        Chitranjan is a skilled Java Developer with experience on high-scale projects, delivering robust and scalable solutions. He is collaborative, dependable, and communicates complex concepts clearly.
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="assets/imgs/testmonial/anuj_testimonial.jpeg" alt="Anuj Choudhary" class="testimonial-avatar" loading="lazy" width="48" height="48">
+                        <div>
+                            <a href="https://www.linkedin.com/in/anuj-choudhary/" target="_blank" rel="noopener" class="testimonial-name">Anuj Choudhary</a>
+                            <p class="testimonial-position">Engineering Manager @ <a href="https://www.spyne.ai/" target="_blank" rel="noopener">Spyne</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 7 -->
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-quote" aria-hidden="true">
+                        <i data-lucide="quote"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        Chittaranjan is a hard-working and sincere guy. He is very professional and very passionate about his work. He can be a valuable asset to any organization.
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="assets/imgs/testmonial/nikhil_testimonial.png" alt="Nikhil Singh" class="testimonial-avatar" loading="lazy" width="48" height="48">
+                        <div>
+                            <a href="https://www.linkedin.com/in/nikhil2k95/" target="_blank" rel="noopener" class="testimonial-name">Nikhil Singh</a>
+                            <p class="testimonial-position">Senior SEO Strategist @ <a href="https://kanerika.com/" target="_blank" rel="noopener">Kanerika Inc</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA BANNER ============ -->
+    <section class="cta-banner">
+        <div class="cta-gradient" aria-hidden="true"></div>
+        <div class="container cta-content reveal">
+            <h2 class="cta-title">Let's build something<br><span class="heading-accent">extraordinary</span> together.</h2>
+            <p class="cta-subtitle">I'm always open to freelance gigs, collaborations, or just talking code over coffee.</p>
+            <a href="mailto:chittaranjan1998.das@gmail.com" class="btn btn--primary btn--lg">
+                <span>Get in Touch</span>
+                <i data-lucide="arrow-right" class="btn-icon"></i>
             </a>
         </div>
-    </nav><!-- End of Page Navbar -->
-
-    <!-- page header -->
-    <header id="home" class="header">
-        <div class="overlay"></div>
-        <div class="header-content container">
-            <h1 class="header-title">
-                <span class="up">HI!</span>
-                <span class="down">I am Chittaranjan Das</span>
-            </h1>
-            <p class="header-subtitle">FULL STACK SOFTWARE DEVELOPER</p>
-
-            <a href="https://www.linkedin.com/in/chittaranjandas1998" target="_blank"><button
-                    class="btn btn-primary">Visit My Linkedin</button></a>
-        </div>
-    </header>
-
-    <!-- about section -->
-    <section class="section pt-0" id="about">
-        <!-- container -->
-        <div class="container text-center">
-            <!-- about wrapper -->
-            <div class="about">
-                <div class="about-img-holder">
-                    <img src="assets/imgs/man.png" class="about-img">
-                </div>
-                <div class="about-caption">
-                    <p class="section-subtitle">Who Am I ?</p>
-                    <h2 class="section-title mb-3">About Me</h2>
-                    <p>
-                        I'm Chittaranjan Das, a Senior Software Engineer based in Gurgaon, India, with 5 years of
-                        experience building high-quality software solutions. My work spans web applications, IVR
-                        systems, and enterprise software, with expertise in Java, JavaScript, and Agile methodologies.
-                    </p>
-                    <p>I enjoy collaborating with cross-functional teams to design and deliver seamless,
-                        user-focused products. Currently at SNUG Technologies Pvt. Ltd., I lead the development of
-                        scalable, reliable solutions while working closely with clients to align technical delivery with
-                        business needs.
-                    </p>
-                    <p>Passionate about continuous learning and exploring new technologies, I aim to
-                        create impactful digital experiences that solve real-world problems.
-                    </p>
-                    <a href="assets/resume/chittaranjan_resume.pdf" class="btn-rounded btn btn-outline-primary mt-4"
-                        download>
-                        Download Resume
-                    </a>
-                </div>
-            </div><!-- end of about wrapper -->
-        </div><!-- end of container -->
-    </section> <!-- end of about section -->
-
-    <!-- service section -->
-    <section class="section" id="service">
-        <div class="container text-center">
-            <p class="section-subtitle">Where I've Worked ?</p>
-            <h6 class="section-title mb-6">Experiences</h6>
-            <!-- row -->
-            <div class="row justify-content-center">
-                <div class="col-md-6 col-lg-3">
-                    <a href="https://www.snug.in/" target="_blank" class="text-decoration-none">
-                        <div class="service-card">
-                            <div class="body">
-                                <img src="assets/imgs/companies/snug.jpeg" class="icon ">
-                                <h6 class="title">SNUG</h6>
-                                <h6 class="title-sm text-muted mb-2">Senior Software Developer</h6>
-                                <h6 class="title-sm text-muted mb-2" style="font-size: 0.85rem;">April 2021 - Present
-                                </h6>
-                                <p class="subtitle">I build robust software solutions for clients like UIDAI, MP112,
-                                    Bengaluru Safe City, BNI, and bKash, including telecom products such as the ECHI
-                                    data
-                                    visualizer, number masking solutions, and CCXML-based outbound call systems.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <a href="https://www.spyne.ai/" target="_blank" class="text-decoration-none">
-                        <div class="service-card">
-                            <div class="body">
-                                <img src="assets/imgs/companies/spyne.webp" class="icon">
-                                <h6 class="title">SPYNE</h6>
-                                <h6 class="title-sm text-muted mb-2">Software Engineer</h6>
-                                <h6 class="title-sm text-muted mb-2" style="font-size: 0.85rem;">Sept 2019 - Sept 2020
-                                </h6>
-                                <p class="subtitle">Developed interactive web applications fulfilling client web and SEO
-                                    needs, integrated automated payment gateway systems, built internal CRM reports for
-                                    product tracking, and created public APIs for on-demand service integration.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/companies/eventila.jpeg" class="icon">
-                            <h6 class="title">EVENTILA</h6>
-                            <h6 class="title-sm text-muted mb-2">Associate Software Engineer</h6>
-                            <h6 class="title-sm text-muted mb-2" style="font-size: 0.85rem;">Jun 2019 - Sept 2019</h6>
-                            <p class="subtitle">Collaborated with developers and designers to build the company landing
-                                page and delivered technical solutions aligned with product features and requirements.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- end of service section -->
-
-    <!-- portfolio section -->
-    <section class="section" id="portfolio">
-        <div class="container text-center">
-            <p class="section-subtitle">What I Did ?</p>
-            <h6 class="section-title mb-6">Works</h6>
-            <!-- row -->
-            <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <a href="https://www.hypepay.live/" class="portfolio-card" target="_blank">
-                        <img src="assets/imgs/work/hypepay-live.png" class="portfolio-card-img">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>HYPE PAY </br> PLATFORM</h5>
-                                    <p class="font-weight-normal mb-1">Tech: Angular, NodeJs, AWS, RazorPay</p>
-
-                                    <p class="font-weight-light">
-                                        A unified platform for streamers and creator to enabale payment notification on
-                                        live stream screen with variour channel overlays and widgets.
-                                    </p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="https://attrock.com/" class="portfolio-card" target="_blank">
-                        <img src="assets/imgs/work/attrock.png" class="portfolio-card-img">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>ATTROCK </br> TOOLS</h5>
-                                    <p class="font-weight-normal mb-1">Tech: React, Python, Node JS</p>
-
-                                    <p class="font-weight-light">
-                                        Created the Attrock tools section featuring advanced AI-powered results for
-                                        multiple use cases.
-                                    </p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="https://apps.apple.com/in/app/the-q-experiences/id6739945297" class="portfolio-card"
-                        target="_blank">
-                        <img src="assets/imgs/work/q-experiences.png" class="portfolio-card-img">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>THE Q EXPERIENCES </br> MOBILE APP</h5>
-                                    <p class="font-weight-normal mb-1">Tech: Flutter, Firebase, Node JS</p>
-
-                                    <p class="font-weight-light">
-                                        Developed a cross-platform travel app enabling customers to track journeys,
-                                        store essential documents offline, and chat with fellow passengers for a
-                                        connected travel experience.
-                                    </p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-md-4 mt-3">
-                    <a href="https://ggilonline.com/" class="portfolio-card" target="_blank">
-                        <img class="portfolio-card-img" src="assets/imgs/work/gail-india.png"
-                            class="img-responsive rounded">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>GAIL INDIA WEBSITE</h5>
-                                    <p class="font-weight-normal mb-1">Tech: HTML5, Bootstrap 4, JS</p>
-                                    <p class="font-weight-light">Designed and built a responsive, multilingual corporate
-                                        website optimized for performance and accessibility.</p>
-
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-md-4 mt-3">
-                    <a href="https://chittaranjan127.github.io/portfolio/" class="portfolio-card" target="_blank">
-                        <img class="portfolio-card-img" src="assets/imgs/work/portfolio.png"
-                            class="img-responsive rounded">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>PORTFOLIO WEBSITE</h5>
-                                    <p class="font-weight-normal mb-1">Tech: Angular, AWS</p>
-
-                                    <p class="font-weight-light">Created a clean, responsive portfolio site to showcase
-                                        projects, experiences, and professional journey. (Old one)</p>
-
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-md-4 mt-3">
-                    <a href="https://prarthanadalai.github.io/prarthana-portfolio/" class="portfolio-card"
-                        target="_blank">
-                        <img class="portfolio-card-img" src="assets/imgs/work/portfolio-1.png"
-                            class="img-responsive rounded">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>CUSTOMER'S PORTFOLIO</h5>
-                                    <p class="font-weight-normal mb-1">Tech: HTML, BOOTSTRAP4, AWS</p>
-
-                                    <p class="font-weight-light">Created a clean, responsive portfolio site to showcase
-                                        projects, experiences, and professional journey for a customer.</p>
-
-                            </span>
-                        </span>
-                    </a>
-                </div>
-            </div><!-- end of row -->
-        </div><!-- end of container -->
-    </section> <!-- end of portfolio section -->
-
-    <!-- pricing section -->
-    <section class="section" id="pricing">
-        <div class="container text-center">
-            <p class="section-subtitle">What I Bring ?</p>
-            <h6 class="section-title mb-6">Skills & Expertise</h6>
-            <!-- row -->
-            <div class="pricing-wrapper">
-                <div class="pricing-card">
-                    <div class="pricing-card-header">
-                        <img class="pricing-card-icon" src="assets/imgs/skills/frontend.png">
-                    </div>
-                    <div class="pricing-card-body">
-                        <h6 class="pricing-card-title">FRONTEND</h6>
-                        <div class="pricing-card-list">
-                            <p>HTML</p>
-                            <p>Bootsrap 4</p>
-                            <p>Angular</p>
-                            <p>React</p>
-                            <p>Dart</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-card-header">
-                        <img class="pricing-card-icon" src="assets/imgs/skills/backend.png">
-                    </div>
-                    <div class="pricing-card-body">
-                        <h6 class="pricing-card-title">BACKEND</h6>
-                        <div class="pricing-card-list">
-                            <p>Java</p>
-                            <p>Spring Boot</p>
-                            <p>Node JS</p>
-                            <p>Python</p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-card-header">
-                        <img class="pricing-card-icon" src="assets/imgs/skills/dev.png">
-                    </div>
-                    <div class="pricing-card-body">
-                        <h6 class="pricing-card-title">DEV</h6>
-                        <div class="pricing-card-list">
-                            <p>LINUX</p>
-                            <p>AWS</p>
-                            <p>Google Cloud</p>
-                            <p>Azure</p>
-                            <p></p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-card-header">
-                        <img class="pricing-card-icon" src="assets/imgs/skills/tools.png">
-                    </div>
-                    <div class="pricing-card-body">
-                        <h6 class="pricing-card-title">TOOLS</h6>
-                        <div class="pricing-card-list">
-                            <p>Figma</p>
-                            <p>Canva </p>
-                            <p>Wordpress</p>
-                            <p>Shopify</p>
-                            <p>ChatGPT</p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div><!-- end of pricing wrapper -->
-        </div> <!-- end of container -->
-    </section><!-- end of pricing section -->
-
-    <!-- section -->
-    <section class="section-sm bg-primary">
-        <!-- container -->
-        <div class="container text-center text-sm-left">
-            <!-- row -->
-            <div class="row align-items-center">
-                <div class="col-sm offset-md-1 mb-4 mb-md-0">
-                    <h6 class="title text-light">Want to work with me?</h6>
-                    <p class="m-0 text-light">Always feel Free to Contact & Hire me</p>
-                </div>
-                <div class="col-sm offset-sm-2 offset-md-3">
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=chittaranjan1998.das@gmail.com"><button
-                            class="btn btn-lg my-font btn-light rounded">Hire Me</button></a>
-                </div>
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </section> <!-- end of section -->
-
-    <!-- testimonial section -->
-    <section class="section" id="testmonial">
-        <div class="container text-center">
-            <p class="section-subtitle">What Client Think About Me ?</p>
-            <h6 class="section-title mb-6">Testmonial</h6>
-
-            <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-ride="carousel"
-                data-interval="7000">
-                <ol class="carousel-indicators">
-                    <li data-target="#testimonialCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#testimonialCarousel" data-slide-to="1"></li>
-                    <li data-target="#testimonialCarousel" data-slide-to="2"></li>
-                    <li data-target="#testimonialCarousel" data-slide-to="3"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row justify-content-center">
-                            <div class="col-md-6">
-                                <div class="testimonial-card">
-                                    <div class="testimonial-card-img-holder">
-                                        <img src="assets/imgs/testmonial/shashi_testimonial.jpeg"
-                                            class="testimonial-card-img" alt="Client Image">
-                                    </div>
-                                    <div class="testimonial-card-body">
-                                        <p class="testimonial-card-subtitle">
-                                            Chittaranjan is exceptionally skilled in Spring Boot and backend
-                                            development. He has a great way of turning complex problems into simple,
-                                            reliable solutions. I really admire his dedication to clean code and best
-                                            practices, and he's always willing to help the team improve. A true
-                                            professional and a pleasure to work with. Highly recommended!
-                                        </p>
-                                        <a href="https://www.linkedin.com/in/shashi-prakash-759a4871/" target="_blank">
-                                            <h6 class="testimonial-card-title mb-0">Shashi Prakash</h6>
-                                        </a>
-                                        <p class="text-dark mb-0" style="font-size: 0.9rem;">Director and CEO @
-                                            <a href="https://www.swiftywebagency.com/" target="_blank">Swifty Web
-                                                Agency</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="testimonial-card">
-                                    <div class="testimonial-card-img-holder">
-                                        <img src="assets/imgs/testmonial/akhil_testimonial.jpeg"
-                                            class="testimonial-card-img" alt="Client Image">
-                                    </div>
-                                    <div class="testimonial-card-body">
-                                        <p class="testimonial-card-subtitle">
-                                            I've worked closely with Chittaranjan and consider him a strong asset who
-                                            blends technical expertise with business acumen. He simplifies ambiguous
-                                            problems, drives execution, improves processes, and reliably delivers
-                                            scalable solutions through effective stakeholder and vendor coordination.
-                                        </p>
-                                        <a href="https://www.linkedin.com/in/akhil-jandial/" target="_blank">
-                                            <h6 class="testimonial-card-title mb-0">Akhil Jandial</h6>
-                                        </a>
-                                        <p class="text-dark mb-0" style="font-size: 0.9rem;">Manager II - IT Business
-                                            Applications @
-                                            <a href="https://www.mgmotor.co.in/" target="_blank">MG Motor India</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-md-6">
-                                <div class="testimonial-card">
-                                    <div class="testimonial-card-img-holder">
-                                        <img src="assets/imgs/testmonial/shivanjan_testimonial.jpeg"
-                                            class="testimonial-card-img" alt="Client Image">
-                                    </div>
-                                    <div class="testimonial-card-body">
-                                        <p class="testimonial-card-subtitle">
-                                            I've been working with Chittaranjan since college we used to participate in
-                                            many robotics and coding events as a team. He has demonstrated his
-                                            creativity with code and intellect in tough situations and has a proven
-                                            record of not giving up.
-                                        </p>
-                                        <a href="https://www.linkedin.com/in/shivanjan/" target="_blank">
-                                            <h6 class="testimonial-card-title mb-0">Shivanjan Chakravorty</h6>
-                                        </a>
-                                        <p class="text-dark mb-0" style="font-size: 0.9rem;">Senior Software Engineer @
-                                            <a href="https://www.nvidia.com" target="_blank">Nvidia</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="testimonial-card">
-                                    <div class="testimonial-card-img-holder">
-                                        <img src="assets/imgs/testmonial/preeti_testimonial.jpeg"
-                                            class="testimonial-card-img" alt="Client Image">
-                                    </div>
-                                    <div class="testimonial-card-body">
-                                        <p class="testimonial-card-subtitle">
-                                            He knows his job the best. No need to go back &amp; Forth explaining
-                                            things. Always puts in extra effort, leading to smooth project deployment.
-                                        </p>
-                                        <a href="https://www.linkedin.com/in/preeti-saini-00720a50/" target="_blank">
-                                            <h6 class="testimonial-card-title mb-0">Preeti Saini</h6>
-                                        </a>
-                                        <p class="text-dark mb-0" style="font-size: 0.9rem;">Business Owner &amp;
-                                            Founder @ <a href="https://www.lexicmedia.com/"
-                                                target="_blank">LexicMedia</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-md-6">
-                                <div class="testimonial-card">
-                                    <div class="testimonial-card-img-holder">
-                                        <img src="assets/imgs/testmonial/nabeel_testimonial.jpeg"
-                                            class="testimonial-card-img" alt="Client Image">
-                                    </div>
-                                    <div class="testimonial-card-body">
-                                        <p class="testimonial-card-subtitle">
-                                            A rare mix of creative and technical. He translates ideas into smooth,
-                                            functional experiences and often comes up with better solutions than what
-                                            we initially imagined.
-                                        </p>
-                                        <a href="https://www.linkedin.com/in/nabeel-hussain-2488791b5/" target="_blank">
-                                            <h6 class="testimonial-card-title mb-0">Nabeel Hussain</h6>
-                                        </a>
-                                        <p class="text-dark mb-0" style="font-size: 0.9rem;">Head of Design @
-                                            <a href="https://www.98fahren.com/" target="_blank">98 Fahren Inc</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="testimonial-card">
-                                    <div class="testimonial-card-img-holder">
-                                        <img src="assets/imgs/testmonial/anuj_testimonial.jpeg"
-                                            class="testimonial-card-img" alt="Client Image">
-                                    </div>
-                                    <div class="testimonial-card-body">
-                                        <p class="testimonial-card-subtitle">
-                                            Chitranjan is a skilled Java Developer with experience on high-scale
-                                            projects, delivering robust and scalable solutions. He is collaborative,
-                                            dependable, and communicates complex concepts clearly.
-                                        </p>
-                                        <a href="https://www.linkedin.com/in/anuj-choudhary/" target="_blank">
-                                            <h6 class="testimonial-card-title mb-0">Anuj Choudhary</h6>
-                                        </a>
-                                        <p class="text-dark mb-0" style="font-size: 0.9rem;">Engineering Manager &amp;
-                                            AI Architect @
-                                            <a href="https://www.spyne.ai/" target="_blank">Spyne</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-md-6">
-                                <div class="testimonial-card">
-                                    <div class="testimonial-card-img-holder">
-                                        <img src="assets/imgs/testmonial/nikhil_testimonial.png"
-                                            class="testimonial-card-img" alt="Client Image">
-                                    </div>
-                                    <div class="testimonial-card-body">
-                                        <p class="testimonial-card-subtitle">
-                                            Chittaranjan is a hard-working and sincere guy. We work in different teams
-                                            but he is always ready to help. He is very professional and very passionate
-                                            about his work. He can be a valuable asset to any organization.
-                                        </p>
-                                        <a href="https://www.linkedin.com/in/nikhil2k95/" target="_blank">
-                                            <h6 class="testimonial-card-title mb-0">Nikhil Singh</h6>
-                                        </a>
-                                        <p class="text-dark mb-0" style="font-size: 0.9rem;">Senior SEO &amp; Growth
-                                            Marketing Strategist @
-                                            <a href="https://kanerika.com/" target="_blank">Kanerika Inc</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
     </section>
 
-    <section class="section" id="blog">
-        <div class="container">
-            <p class="section-subtitle text-center">Stay Updated</p>
-            <h6 class="section-title mb-6 text-center">My Recent LinkedIn Posts</h6>
-
-            <!-- LinkedIn Post Card -->
-            <div class="row blog-card align-items-center mb-5">
-                <div class="col-md-7">
-                    <iframe
-                        src="https://www.linkedin.com/embed/feed/update/urn:li:share:7113929902218706944?collapsed=1"
-                        height="500" width="100%" frameborder="0" allowfullscreen=""></iframe>
-                </div>
-                <div class="col-md-5 text-start">
-                    <h4 class="mb-3">🚀 Exciting News: macOS Sonoma Unleashed! 🍏✨</h4>
-                    <p>
-                        Dive into macOS Sonoma, packed with 50+ new features — from customizable widgets 🌈
-                        and FaceTime reactions 🎈 to Safari profiles 🌐, Presenter Overlay 🎥, and iPhone widgets on Mac
-                        📱💻.
-                        Which feature excites you the most?
-                    </p>
-                    <a href="https://www.linkedin.com/posts/chittaranjandas1998_macossonoma-applemagic-techtalks-activity-7113929903154065408-hpkD?utm_source=share&utm_medium=member_desktop&rcm=ACoAACpt5OkB9SAsJlB3JedJxT4fEGssHM8vWJM"
-                        target="_blank" class="btn btn-primary mt-3">Read Full Post</a>
-                </div>
-            </div>
-
-            <!-- Second Post -->
-            <div class="row blog-card align-items-center">
-                <div class="col-md-7">
-                    <iframe
-                        src="https://www.linkedin.com/embed/feed/update/urn:li:share:7101236189931667457?collapsed=1"
-                        height="500" width="100%" frameborder="0" allowfullscreen=""></iframe>
-                </div>
-                <div class="col-md-5 text-start">
-                    <h4 class="mb-3">🌕 Chandrayaan-3: India’s Leap in Lunar Exploration</h4>
-                    <p>
-                        Chandrayaan-3 marks a historic milestone for ISRO with a successful landing in the Moon's south
-                        polar region.
-                        Featuring a compact 26kg rover and advanced instruments like LIBS and APXS, this mission aims to
-                        study the Moon’s
-                        surface and enhance our understanding of its composition and seismic activity. 🚀
-                    </p>
-                    <a href="https://www.linkedin.com/posts/chittaranjandas1998_chandrayaan3-spaceexploration-lunarmission-activity-7101236192892846081-0mLS?utm_source=share&utm_medium=member_desktop&rcm=ACoAACpt5OkB9SAsJlB3JedJxT4fEGssHM8vWJM"
-                        target="_blank" class="btn btn-primary mt-3">Read on LinkedIn</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
+    <!-- ============ CONTACT ============ -->
     <section class="section" id="contact">
-        <div class="container text-center py-5">
-            <p class="section-subtitle">Let’s Build Something Cool Together 🚀</p>
-            <h6 class="section-title mb-4">Get in Touch</h6>
-            <p class="mb-5" style="font-size: 1.1rem;">
-                Whether it's a freelance gig, collaboration, or just talking code over coffee, I'm always up for a good
-                conversation.
-                Let’s create something awesome together!
-            </p>
+        <div class="container">
+            <div class="section-label reveal">
+                <span class="section-number">06</span>
+                <span class="section-line"></span>
+                <span>Contact</span>
+            </div>
 
-            <!-- Quick contact buttons -->
-            <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=chittaranjan1998.das@gmail.com"
-                    class="btn btn-primary rounded-pill px-4 py-2 m-2 shadow-sm" target="_blank">
-                    📧 Email Me
-                </a>
-                <a href="https://www.linkedin.com/in/chittaranjandas1998/" target="_blank"
-                    class="btn btn-outline-primary rounded-pill px-4 py-2 m-2 shadow-sm">
-                    💼 Message on LinkedIn
-                </a>
-                <a href="https://wa.me/917606983009" target="_blank"
-                    class="btn btn-success rounded-pill px-4 py-2 m-2 shadow-sm">
-                    💬 Chat on WhatsApp
-                </a>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h2 class="section-heading">
+                        Say <span class="heading-accent">hello.</span>
+                    </h2>
+                    <p class="contact-description">
+                        Whether it's a freelance gig, collaboration, or just talking code over coffee &mdash; I'm always up for a good conversation.
+                    </p>
+
+                    <div class="contact-links">
+                        <a href="mailto:chittaranjan1998.das@gmail.com" class="contact-link-item">
+                            <div class="contact-link-icon">
+                                <i data-lucide="mail"></i>
+                            </div>
+                            <div>
+                                <span class="contact-link-label">Email</span>
+                                <span class="contact-link-value">chittaranjan1998.das@gmail.com</span>
+                            </div>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/chittaranjandas1998/" target="_blank" rel="noopener" class="contact-link-item">
+                            <div class="contact-link-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                            </div>
+                            <div>
+                                <span class="contact-link-label">LinkedIn</span>
+                                <span class="contact-link-value">in/chittaranjandas1998</span>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/Chittaranjan127" target="_blank" rel="noopener" class="contact-link-item">
+                            <div class="contact-link-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                            </div>
+                            <div>
+                                <span class="contact-link-label">GitHub</span>
+                                <span class="contact-link-value">Chittaranjan127</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-terminal reveal">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="terminal-dot terminal-dot--red"></span>
+                            <span class="terminal-dot terminal-dot--yellow"></span>
+                            <span class="terminal-dot terminal-dot--green"></span>
+                        </div>
+                        <span class="terminal-title">contact.sh</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-cmd">whoami</span>
+                        </p>
+                        <p class="terminal-output">Chittaranjan Das</p>
+                        <p class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-cmd">cat role.txt</span>
+                        </p>
+                        <p class="terminal-output">Senior Software Engineer</p>
+                        <p class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-cmd">echo $LOCATION</span>
+                        </p>
+                        <p class="terminal-output">Gurgaon, India</p>
+                        <p class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-cmd">echo $STATUS</span>
+                        </p>
+                        <p class="terminal-output terminal-output--green">Available for new opportunities</p>
+                        <p class="terminal-line terminal-line--blink">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-cursor">_</span>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-
-    <div class="container">
-        <footer class="footer d-flex justify-content-between align-items-center">
-            <p class="mb-0">Copyright
-                <script>document.write(new Date().getFullYear())</script> &copy; <a href="#">MrFreak</a>
-            </p>
-            <div class="social-links text-right m-auto ml-sm-auto">
-                <!-- Gmail (opens Gmail compose directly) -->
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=chittaranjan1998.das@gmail.com" target="_blank"
-                    class="link"><i class="ti-google"></i></a>
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/chittaranjandas1998/" target="_blank" class="link"><i
-                        class="ti-linkedin"></i></a>
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-left">
+                <a href="#top" class="nav-logo">
+                    <span class="nav-dots">
+                        <span class="ndot ndot--r"></span>
+                        <span class="ndot ndot--y"></span>
+                        <span class="ndot ndot--g"></span>
+                    </span>
+                    <span class="nav-logo-path">~/chittaranjan.dev</span>
+                </a>
+                <p class="footer-copy">
+                    &copy; <script>document.write(new Date().getFullYear())</script> Chittaranjan Das. All rights reserved.
+                </p>
             </div>
-        </footer>
-    </div>
+            <div class="footer-social">
+                <a href="mailto:chittaranjan1998.das@gmail.com" class="social-link" aria-label="Email">
+                    <i data-lucide="mail"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/chittaranjandas1998/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="https://github.com/Chittaranjan127" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
 
+    <!-- Back to top -->
+    <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i data-lucide="chevron-up"></i>
+    </a>
 
-    <!-- core  -->
-    <script src="assets/js/jquery-3.4.1.js"></script>
-    <script src="assets/js/bootstrap.bundle.js"></script>
-
-    <!-- bootstrap 3 affix -->
-    <script src="assets/js/bootstrap.affix.js"></script>
-
-    <!-- Meyawo js -->
-    <script src="assets/js/index.js"></script>
-
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
