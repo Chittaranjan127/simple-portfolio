@@ -301,5 +301,147 @@
 
     sections.forEach((section) => sectionObserver.observe(section));
 
+    /* ---------- GITHUB ACTIVITY ---------- */
+    const GH_USER = 'Chittaranjan127';
+    const ghHeatmap = document.getElementById('ghHeatmap');
+    const ghMonths = document.getElementById('ghMonths');
+    const ghReposList = document.getElementById('ghReposList');
+
+    // Language colors
+    const langColors = {
+        JavaScript: '#f1e05a', TypeScript: '#3178c6', Java: '#b07219',
+        Python: '#3572A5', HTML: '#e34c26', CSS: '#563d7c',
+        Dart: '#00B4AB', Shell: '#89e051', Kotlin: '#A97BFF',
+        null: '#8b949e'
+    };
+
+    // Fetch user profile
+    fetch('https://api.github.com/users/' + GH_USER)
+        .then(r => r.json())
+        .then(data => {
+            const el = (id, val) => {
+                const e = document.getElementById(id);
+                if (e) e.textContent = val;
+            };
+            el('ghRepos', data.public_repos || 0);
+            el('ghFollowers', data.followers || 0);
+            el('ghFollowing', data.following || 0);
+        })
+        .catch(() => {});
+
+    // Fetch events to build a contribution-like heatmap
+    if (ghHeatmap) {
+        // Build 52 weeks of cells (364 days)
+        const today = new Date();
+        const totalDays = 364;
+        const startDate = new Date(today);
+        startDate.setDate(today.getDate() - totalDays);
+        // Align to Sunday
+        startDate.setDate(startDate.getDate() - startDate.getDay());
+
+        const dayMap = {};
+        const cells = [];
+
+        for (let d = new Date(startDate); d <= today; d.setDate(d.getDate() + 1)) {
+            const key = d.toISOString().split('T')[0];
+            dayMap[key] = 0;
+            const cell = document.createElement('div');
+            cell.className = 'gh-cell';
+            cell.dataset.date = key;
+            cell.title = key;
+            ghHeatmap.appendChild(cell);
+            cells.push(cell);
+        }
+
+        // Month labels
+        if (ghMonths) {
+            const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            let lastMonth = -1;
+            const weeks = Math.ceil(cells.length / 7);
+            for (let w = 0; w < weeks; w++) {
+                const idx = w * 7;
+                if (idx < cells.length) {
+                    const dt = new Date(cells[idx].dataset.date);
+                    const m = dt.getMonth();
+                    if (m !== lastMonth) {
+                        const span = document.createElement('span');
+                        span.textContent = monthNames[m];
+                        span.style.minWidth = '14px';
+                        ghMonths.appendChild(span);
+                        lastMonth = m;
+                    } else {
+                        const span = document.createElement('span');
+                        span.style.minWidth = '14px';
+                        ghMonths.appendChild(span);
+                    }
+                }
+            }
+        }
+
+        // Fetch recent events (public, up to 300)
+        const eventPages = [1, 2, 3].map(p =>
+            fetch('https://api.github.com/users/' + GH_USER + '/events/public?per_page=100&page=' + p)
+                .then(r => r.json())
+                .catch(() => [])
+        );
+
+        Promise.all(eventPages).then(pages => {
+            const events = pages.flat();
+            let totalContribs = 0;
+
+            events.forEach(ev => {
+                const date = ev.created_at ? ev.created_at.split('T')[0] : null;
+                if (date && dayMap[date] !== undefined) {
+                    dayMap[date]++;
+                    totalContribs++;
+                }
+            });
+
+            const el = document.getElementById('ghContribs');
+            if (el) el.textContent = totalContribs;
+
+            // Assign levels
+            cells.forEach(cell => {
+                const count = dayMap[cell.dataset.date] || 0;
+                let level = 0;
+                if (count >= 8) level = 4;
+                else if (count >= 5) level = 3;
+                else if (count >= 2) level = 2;
+                else if (count >= 1) level = 1;
+                cell.dataset.level = level;
+                cell.title = cell.dataset.date + ': ' + count + ' contribution' + (count !== 1 ? 's' : '');
+            });
+        });
+    }
+
+    // Fetch recent repos
+    if (ghReposList) {
+        fetch('https://api.github.com/users/' + GH_USER + '/repos?sort=updated&per_page=4')
+            .then(r => r.json())
+            .then(repos => {
+                ghReposList.innerHTML = repos.map(repo => {
+                    const lang = repo.language || null;
+                    const color = langColors[lang] || langColors[null];
+                    const desc = repo.description || 'No description';
+                    return '<a href="' + repo.html_url + '" target="_blank" rel="noopener" class="gh-repo">' +
+                        '<span class="gh-repo-name">' +
+                            '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>' +
+                            repo.name +
+                        '</span>' +
+                        '<span class="gh-repo-desc">' + desc + '</span>' +
+                        '<span class="gh-repo-meta">' +
+                            (lang ? '<span><span class="gh-lang-dot" style="background:' + color + '"></span>' + lang + '</span>' : '') +
+                            '<span>' +
+                                '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>' +
+                                repo.stargazers_count +
+                            '</span>' +
+                        '</span>' +
+                    '</a>';
+                }).join('');
+            })
+            .catch(() => {
+                ghReposList.innerHTML = '<p style="color:var(--text-muted);font-size:0.82rem;">Failed to load repos</p>';
+            });
+    }
 
 })();
