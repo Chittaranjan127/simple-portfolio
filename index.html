@@ -36,10 +36,77 @@
 
     <link rel="icon" type="image/x-icon" href="assets/imgs/favicon.ico">
 
-    <!-- Fonts: Syne (display), DM Sans (body), JetBrains Mono (code accents) -->
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href="assets/imgs/man.png">
+    <link rel="dns-prefetch" href="https://api.github.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Structured data: Person -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Chittaranjan Das",
+        "alternateName": "Chitta Ranjan Das",
+        "url": "https://chittaranjan.me/",
+        "image": "https://chittaranjan.me/assets/imgs/man.png",
+        "jobTitle": "Senior Software Engineer",
+        "description": "Senior Software Engineer with 7+ years building scalable web applications, IVR systems, and enterprise software.",
+        "email": "mailto:chittaranjan1998.das@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Gurgaon",
+            "addressRegion": "Haryana",
+            "addressCountry": "IN"
+        },
+        "worksFor": {
+            "@type": "Organization",
+            "name": "SNUG Technologies",
+            "url": "https://www.snug.in/"
+        },
+        "alumniOf": [
+            { "@type": "Organization", "name": "Spyne.ai", "url": "https://www.spyne.ai/" },
+            { "@type": "Organization", "name": "Eventila" }
+        ],
+        "knowsAbout": ["Java", "Spring Boot", "Node.js", "React", "Angular", "AWS", "Python", "Flutter", "JavaScript", "TypeScript", "Enterprise Software", "Telecom Systems", "IVR"],
+        "sameAs": [
+            "https://www.linkedin.com/in/chittaranjandas1998/",
+            "https://github.com/Chittaranjan127"
+        ]
+    }
+    </script>
+
+    <!-- Structured data: Website -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://chittaranjan.me/",
+        "name": "Chittaranjan Das — Portfolio",
+        "description": "Portfolio of Chittaranjan Das, a Senior Software Engineer.",
+        "author": { "@type": "Person", "name": "Chittaranjan Das" }
+    }
+    </script>
+
+    <!-- Structured data: Portfolio projects -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "ServedHot Production", "url": "https://servedhotproductions.com/", "description": "Website for a media and ad shooting company." }},
+            { "@type": "ListItem", "position": 2, "item": { "@type": "CreativeWork", "name": "Hypepay Live Platform", "url": "https://www.hypepay.live/", "description": "Unified platform for streamers and creators." }},
+            { "@type": "ListItem", "position": 3, "item": { "@type": "CreativeWork", "name": "Attrock Tools", "url": "https://attrock.com/", "description": "AI-powered tools section." }},
+            { "@type": "ListItem", "position": 4, "item": { "@type": "CreativeWork", "name": "The Q Experiences", "url": "https://apps.apple.com/in/app/the-q-experiences/id6739945297", "description": "Cross-platform travel app." }},
+            { "@type": "ListItem", "position": 5, "item": { "@type": "CreativeWork", "name": "GAIL India Website", "url": "https://ggilonline.com/", "description": "Responsive multilingual corporate website." }}
+        ]
+    }
+    </script>
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -48,6 +115,27 @@
 </head>
 
 <body id="top" class="loading">
+
+    <!-- SEO: main heading (visually hidden, visible to crawlers & screen readers) -->
+    <h1 class="sr-only">Chittaranjan Das — Senior Software Engineer Portfolio | Java, Spring Boot, Node.js, React, AWS | Gurgaon, India</h1>
+
+    <!-- SEO: section headings for crawlers -->
+    <div class="sr-only">
+        <h2>About Chittaranjan Das</h2>
+        <p>Senior Software Engineer based in Gurgaon, India with 7+ years of experience building scalable web applications, IVR systems, and enterprise software for clients including UIDAI, bKash, BNI, and MP112.</p>
+        <h2>Professional Experience</h2>
+        <p>Currently at SNUG Technologies as Senior Software Developer since April 2021. Previously at Spyne.ai as Software Engineer (Sep 2019 - Sep 2020) and Eventila as Associate Software Engineer (Jun 2019 - Sep 2019).</p>
+        <h2>Technical Skills</h2>
+        <p>Frontend: HTML5, CSS3, Bootstrap, Angular, React, Dart, Flutter. Backend: Java, Spring Boot, Node.js, Python, REST APIs. Cloud &amp; DevOps: Linux, AWS, Google Cloud, Azure, Docker. Tools: Git, Figma, WordPress, Shopify, Canva.</p>
+        <h2>Featured Projects</h2>
+        <p>ServedHot Production, Hypepay Live Platform, Attrock Tools, The Q Experiences mobile app, GAIL India Website, and multiple portfolio sites.</p>
+        <h2>Client Testimonials</h2>
+        <p>Recommended by industry professionals at Nvidia, MG Motor India, Spyne, LexicMedia, Swifty Web Agency, Kanerika, and 98 Fahren Inc.</p>
+        <h2>GitHub Activity</h2>
+        <p>Active open-source contributor at github.com/Chittaranjan127.</p>
+        <h2>Contact Chittaranjan Das</h2>
+        <p>Email: chittaranjan1998.das@gmail.com. LinkedIn: linkedin.com/in/chittaranjandas1998. GitHub: github.com/Chittaranjan127. Open to new opportunities.</p>
+    </div>
 
     <!-- ============ SPLASH SCREEN ============ -->
     <div class="splash" id="splash">
@@ -255,7 +343,7 @@
             <div class="about-grid">
                 <div class="about-image-col reveal">
                     <div class="about-image-wrapper">
-                        <img src="assets/imgs/man.png" alt="Chittaranjan Das" class="about-image" loading="lazy" width="400" height="400">
+                        <img src="assets/imgs/man.png" alt="Chittaranjan Das — Senior Software Engineer" class="about-image" loading="lazy" width="400" height="400">
                         <div class="about-image-border"></div>
                         <div class="about-image-badge">
                             <span class="experience-number">7+</span>
@@ -335,7 +423,7 @@
                     <div class="timeline-content">
                         <div class="timeline-header">
                             <div class="timeline-company-info">
-                                <img src="assets/imgs/companies/snug.jpeg" alt="SNUG" class="timeline-logo" loading="lazy" width="48" height="48">
+                                <img src="assets/imgs/companies/snug.jpeg" alt="SNUG Technologies logo" class="timeline-logo" loading="lazy" width="48" height="48">
                                 <div>
                                     <h3 class="timeline-company">SNUG Technologies</h3>
                                     <p class="timeline-role">Senior Software Developer</p>
@@ -368,7 +456,7 @@
                     <div class="timeline-content">
                         <div class="timeline-header">
                             <div class="timeline-company-info">
-                                <img src="assets/imgs/companies/spyne.webp" alt="SPYNE" class="timeline-logo" loading="lazy" width="48" height="48">
+                                <img src="assets/imgs/companies/spyne.webp" alt="Spyne.ai logo" class="timeline-logo" loading="lazy" width="48" height="48">
                                 <div>
                                     <h3 class="timeline-company">Spyne.ai</h3>
                                     <p class="timeline-role">Software Engineer</p>
@@ -399,7 +487,7 @@
                     <div class="timeline-content">
                         <div class="timeline-header">
                             <div class="timeline-company-info">
-                                <img src="assets/imgs/companies/eventila.jpeg" alt="EVENTILA" class="timeline-logo" loading="lazy" width="48" height="48">
+                                <img src="assets/imgs/companies/eventila.jpeg" alt="Eventila logo" class="timeline-logo" loading="lazy" width="48" height="48">
                                 <div>
                                     <h3 class="timeline-company">Eventila</h3>
                                     <p class="timeline-role">Associate Software Engineer</p>
@@ -525,7 +613,7 @@
                 <!-- Project 1 -->
                 <a href="https://www.hypepay.live/" target="_blank" rel="noopener" class="project-card">
                     <div class="project-card-image">
-                        <img src="assets/imgs/work/hypepay-live.png" alt="Hypepay Live Platform" loading="lazy" width="600" height="400">
+                        <img src="assets/imgs/work/hypepay-live.png" alt="Hypepay Live Platform — Angular and Node.js payment platform for streamers" loading="lazy" width="600" height="400">
                         <div class="project-card-overlay">
                             <i data-lucide="arrow-up-right" class="project-arrow"></i>
                         </div>
@@ -545,7 +633,7 @@
                 <!-- Project 2 -->
                 <a href="https://attrock.com/" target="_blank" rel="noopener" class="project-card reveal">
                     <div class="project-card-image">
-                        <img src="assets/imgs/work/attrock.png" alt="Attrock Tools" loading="lazy" width="600" height="400">
+                        <img src="assets/imgs/work/attrock.png" alt="Attrock Tools — React and Python AI-powered web tools" loading="lazy" width="600" height="400">
                         <div class="project-card-overlay">
                             <i data-lucide="arrow-up-right" class="project-arrow"></i>
                         </div>
@@ -564,7 +652,7 @@
                 <!-- Project 3 -->
                 <a href="https://apps.apple.com/in/app/the-q-experiences/id6739945297" target="_blank" rel="noopener" class="project-card reveal">
                     <div class="project-card-image">
-                        <img src="assets/imgs/work/q-experiences.png" alt="The Q Experiences App" loading="lazy" width="600" height="400">
+                        <img src="assets/imgs/work/q-experiences.png" alt="The Q Experiences — Flutter cross-platform travel app" loading="lazy" width="600" height="400">
                         <div class="project-card-overlay">
                             <i data-lucide="arrow-up-right" class="project-arrow"></i>
                         </div>
@@ -583,7 +671,7 @@
                 <!-- Project 4 -->
                 <a href="https://ggilonline.com/" target="_blank" rel="noopener" class="project-card reveal">
                     <div class="project-card-image">
-                        <img src="assets/imgs/work/gail-india.png" alt="GAIL India Website" loading="lazy" width="600" height="400">
+                        <img src="assets/imgs/work/gail-india.png" alt="GAIL India — multilingual corporate website" loading="lazy" width="600" height="400">
                         <div class="project-card-overlay">
                             <i data-lucide="arrow-up-right" class="project-arrow"></i>
                         </div>
