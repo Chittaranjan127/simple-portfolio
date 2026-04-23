@@ -301,6 +301,253 @@
 
     sections.forEach((section) => sectionObserver.observe(section));
 
+    /* ---------- ASCII FACE OVERLAY ---------- */
+    (function initAsciiFace() {
+        const img = document.querySelector('.about-image');
+        const canvas = document.querySelector('.about-image-code');
+        const wrapper = document.querySelector('.about-image-wrapper');
+        if (!img || !canvas || !wrapper) return;
+
+        const CHARS = ' .\'`^",:;Il!i~+?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$';
+        const ALPHA_MIN = 40;
+        const BG_RGB = '18, 18, 28'; // --bg-card
+
+        // Morph timing
+        const CELL_MORPH_MS = 180;   // duration of a single cell's char→block transition
+        const STAGGER_MS = 520;      // total window over which cells start (wave spread)
+        const FADE_OUT_MS = 420;     // canvas fades to transparent after all cells morphed
+        const TOTAL_MS = STAGGER_MS + CELL_MORPH_MS + FADE_OUT_MS;
+
+        let cells = null;
+        let geom = null;
+        let revealRaf = null;
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function computeCells() {
+            if (!img.naturalWidth || !img.naturalHeight) return false;
+
+            const rect = canvas.getBoundingClientRect();
+            if (rect.width === 0) return false;
+
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            const cols = window.innerWidth < 640 ? 48 : 64;
+            const charAspect = 0.55;
+            const rows = Math.max(8, Math.round(cols * (rect.height / rect.width) * charAspect));
+
+            const off = document.createElement('canvas');
+            off.width = cols;
+            off.height = rows;
+            const octx = off.getContext('2d', { willReadFrequently: true });
+
+            const imgAspect = img.naturalWidth / img.naturalHeight;
+            const displayAspect = rect.width / rect.height;
+            let sx = 0, sy = 0, sw = img.naturalWidth, sh = img.naturalHeight;
+            if (imgAspect > displayAspect) {
+                sw = img.naturalHeight * displayAspect;
+                sx = (img.naturalWidth - sw) / 2;
+            } else {
+                sh = img.naturalWidth / displayAspect;
+            }
+
+            try {
+                octx.drawImage(img, sx, sy, sw, sh, 0, 0, cols, rows);
+            } catch (e) { return false; }
+
+            let pixels;
+            try {
+                pixels = octx.getImageData(0, 0, cols, rows).data;
+            } catch (e) { return false; }
+
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+
+            const cellW = rect.width / cols;
+            const cellH = rect.height / rows;
+            const fontSize = cellH * 1.15;
+
+            geom = { rect, dpr, cols, rows, cellW, cellH, fontSize };
+
+            // Diagonal-wave ordering with noise: looks like a sweeping materialization front
+            const maxSum = (cols - 1) + (rows - 1) * 0.85;
+
+            const next = [];
+            for (let y = 0; y < rows; y++) {
+                for (let x = 0; x < cols; x++) {
+                    const i = (y * cols + x) * 4;
+                    const a = pixels[i + 3];
+                    if (a < ALPHA_MIN) continue;
+
+                    const r = pixels[i], g = pixels[i + 1], b = pixels[i + 2];
+                    const lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+                    if (lum > 0.96 && a > 240) continue;
+
+                    const ci = Math.min(CHARS.length - 1, Math.floor(lum * (CHARS.length - 1)));
+                    const waveOrder = (x + y * 0.85) / maxSum;
+                    const jitter = (Math.random() - 0.5) * 0.25;
+                    const order = Math.min(0.999, Math.max(0, waveOrder + jitter));
+
+                    next.push({
+                        x, y,
+                        char: CHARS[ci],
+                        charAlpha: 0.35 + lum * 0.6,
+                        r, g, b,
+                        order
+                    });
+                }
+            }
+            cells = next;
+            return true;
+        }
+
+        function drawStatic() {
+            if (!cells || !geom) return;
+            const { rect, dpr, cellW, cellH, fontSize } = geom;
+            const ctx = canvas.getContext('2d');
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            ctx.clearRect(0, 0, rect.width, rect.height);
+            ctx.fillStyle = `rgb(${BG_RGB})`;
+            ctx.fillRect(0, 0, rect.width, rect.height);
+            ctx.font = `${fontSize}px "JetBrains Mono", ui-monospace, monospace`;
+            ctx.textBaseline = 'top';
+            for (let k = 0; k < cells.length; k++) {
+                const c = cells[k];
+                ctx.fillStyle = `rgba(59, 130, 246, ${c.charAlpha})`;
+                ctx.fillText(c.char, c.x * cellW, c.y * cellH);
+            }
+        }
+
+        function drawMorph(t) {
+            if (!cells || !geom) return;
+            const { rect, dpr, cellW, cellH, fontSize } = geom;
+            const ctx = canvas.getContext('2d');
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            // Global alpha for fade-out after all cells morphed.
+            // 1 during morph, then eases to 0 during FADE_OUT_MS.
+            const fadeStart = STAGGER_MS + CELL_MORPH_MS;
+            let globalA = 1;
+            if (t > fadeStart) {
+                globalA = Math.max(0, 1 - (t - fadeStart) / FADE_OUT_MS);
+            }
+
+            ctx.clearRect(0, 0, rect.width, rect.height);
+            ctx.fillStyle = `rgba(${BG_RGB}, ${globalA})`;
+            ctx.fillRect(0, 0, rect.width, rect.height);
+            ctx.font = `${fontSize}px "JetBrains Mono", ui-monospace, monospace`;
+            ctx.textBaseline = 'top';
+
+            // Overdraw by 0.5px so adjacent blocks join without seams
+            const bw = cellW + 0.5;
+            const bh = cellH + 0.5;
+
+            for (let k = 0; k < cells.length; k++) {
+                const c = cells[k];
+                const startT = c.order * STAGGER_MS;
+                const p = (t - startT) / CELL_MORPH_MS;
+                const progress = p < 0 ? 0 : p > 1 ? 1 : p;
+
+                // Crossfade: char fades out in first 60%, block fades in from 30% → 100%
+                const charA = progress < 0.6
+                    ? c.charAlpha * (1 - progress / 0.6) * globalA
+                    : 0;
+                const blockA = progress < 0.3
+                    ? 0
+                    : ((progress - 0.3) / 0.7) * globalA;
+
+                const px = c.x * cellW;
+                const py = c.y * cellH;
+
+                if (blockA > 0.01) {
+                    ctx.fillStyle = `rgba(${c.r}, ${c.g}, ${c.b}, ${blockA})`;
+                    ctx.fillRect(px, py, bw, bh);
+                }
+                if (charA > 0.01) {
+                    ctx.fillStyle = `rgba(59, 130, 246, ${charA})`;
+                    ctx.fillText(c.char, px, py);
+                }
+            }
+        }
+
+        // Virtual timeline: currentT is scrubbed forward on hover, backward on leave.
+        // drawMorph(t) is time-symmetric, so reversing just replays the morph backward.
+        let currentT = 0;
+        let direction = 'idle'; // 'forward' | 'reverse' | 'idle'
+        let lastFrame = 0;
+
+        function tick(now) {
+            if (!lastFrame) lastFrame = now;
+            const dt = Math.min(now - lastFrame, 50);
+            lastFrame = now;
+
+            if (direction === 'forward') {
+                currentT += dt;
+                if (currentT >= TOTAL_MS) {
+                    currentT = TOTAL_MS;
+                    direction = 'idle';
+                }
+            } else if (direction === 'reverse') {
+                currentT -= dt;
+                if (currentT <= 0) {
+                    currentT = 0;
+                    direction = 'idle';
+                }
+            }
+
+            if (currentT <= 0) {
+                drawStatic();
+            } else {
+                drawMorph(currentT);
+            }
+
+            if (direction === 'idle') {
+                revealRaf = null;
+                lastFrame = 0;
+                return;
+            }
+            revealRaf = requestAnimationFrame(tick);
+        }
+
+        function setDirection(dir) {
+            direction = dir;
+            if (!revealRaf) {
+                lastFrame = 0;
+                revealRaf = requestAnimationFrame(tick);
+            }
+        }
+
+        function render() {
+            if (computeCells()) {
+                currentT = 0;
+                direction = 'idle';
+                drawStatic();
+            }
+        }
+
+        if (img.complete && img.naturalWidth) {
+            render();
+        } else {
+            img.addEventListener('load', render, { once: true });
+            img.addEventListener('error', () => { canvas.style.display = 'none'; }, { once: true });
+        }
+
+        if (!reduceMotion) {
+            wrapper.addEventListener('mouseenter', () => setDirection('forward'));
+            wrapper.addEventListener('mouseleave', () => setDirection('reverse'));
+            wrapper.addEventListener('focusin', () => setDirection('forward'));
+            wrapper.addEventListener('focusout', () => setDirection('reverse'));
+        } else {
+            // Reduced motion: simple opacity swap
+            wrapper.addEventListener('mouseenter', () => { canvas.style.opacity = '0'; });
+            wrapper.addEventListener('mouseleave', () => { canvas.style.opacity = '1'; });
+        }
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(render, 150);
+        });
+    })();
+
     /* ---------- GITHUB ACTIVITY ---------- */
     const GH_USER = 'Chittaranjan127';
     const ghHeatmap = document.getElementById('ghHeatmap');

@@ -1207,17 +1207,169 @@ body.custom-cursor .cursor-block.clicking {
 
 .about-image-wrapper {
     position: relative;
-    aspect-ratio: 1;
+    aspect-ratio: 4 / 5;
     max-width: 380px;
+    cursor: pointer;
 }
 
 .about-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
+    background: var(--bg-card);
     border-radius: var(--radius-xl);
     position: relative;
     z-index: 2;
+}
+
+.about-image-code {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-xl);
+    z-index: 3;
+    pointer-events: none;
+    will-change: contents;
+}
+
+/* HUD corner brackets — sci-fi frame */
+.about-image-hud {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    z-index: 6;
+    pointer-events: none;
+    opacity: 0.35;
+    border-style: solid;
+    border-color: var(--accent-blue);
+    border-width: 0;
+    transition: opacity 0.35s ease,
+                width 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s ease;
+}
+
+.about-image-hud--tl {
+    top: -5px;
+    left: -5px;
+    border-top-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 4px;
+}
+
+.about-image-hud--tr {
+    top: -5px;
+    right: -5px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-top-right-radius: 4px;
+}
+
+.about-image-hud--bl {
+    bottom: -5px;
+    left: -5px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-bottom-left-radius: 4px;
+}
+
+.about-image-hud--br {
+    bottom: -5px;
+    right: -5px;
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+    border-bottom-right-radius: 4px;
+}
+
+.about-image-wrapper:hover .about-image-hud,
+.about-image-wrapper:focus-within .about-image-hud {
+    opacity: 1;
+    width: 38px;
+    height: 38px;
+    box-shadow: 0 0 14px rgba(59, 130, 246, 0.45);
+}
+
+/* Interaction hint pill */
+.about-image-hint {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    z-index: 7;
+    pointer-events: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent-blue);
+    background: rgba(10, 10, 18, 0.82);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    border-radius: 999px;
+    padding: 5px 11px 5px 9px;
+    transform: translateX(-50%);
+    opacity: 0.95;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    animation: hintPulse 2.2s ease-in-out infinite;
+}
+
+.about-image-hint::before {
+    content: '▸';
+    font-size: 0.8rem;
+    line-height: 1;
+}
+
+.about-image-hint::after {
+    content: 'hover me';
+}
+
+@media (hover: none) {
+    .about-image-hint::after {
+        content: 'touch here';
+    }
+}
+
+.about-image-wrapper:hover .about-image-hint,
+.about-image-wrapper:focus-within .about-image-hint {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-6px);
+}
+
+@keyframes hintPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+    50%      { box-shadow: 0 0 14px 2px rgba(59, 130, 246, 0.45); }
+}
+
+/* Canvas exit and image entrance are driven by JS (per-cell morph).
+   CSS only handles a subtle settle on the photo after the reveal completes. */
+.about-image-wrapper:hover .about-image,
+.about-image-wrapper:focus-within .about-image {
+    animation: imgSettle 0.4s ease 0.8s both;
+}
+
+@keyframes imgSettle {
+    0%   { filter: brightness(1.15) saturate(1.1); }
+    100% { filter: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-image-code,
+    .about-image-hud,
+    .about-image,
+    .about-image-hint {
+        animation: none !important;
+        transition: opacity 0.2s ease;
+    }
+    .about-image-wrapper:hover .about-image-code {
+        opacity: 0;
+    }
 }
 
 .about-image-border {
@@ -1240,7 +1392,7 @@ body.custom-cursor .cursor-block.clicking {
     display: flex;
     align-items: center;
     gap: 8px;
-    z-index: 3;
+    z-index: 5;
     box-shadow: var(--shadow-md);
 }
 
