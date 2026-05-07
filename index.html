@@ -99,11 +99,12 @@
         "@context": "https://schema.org",
         "@type": "ItemList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "ServedHot Production", "url": "https://servedhotproductions.com/", "description": "Website for a media and ad shooting company." }},
+            { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "NewMe360", "url": "https://newme360.web.app/site", "description": "Post-surgery recovery companion — digital health platform." }},
             { "@type": "ListItem", "position": 2, "item": { "@type": "CreativeWork", "name": "Hypepay Live Platform", "url": "https://www.hypepay.live/", "description": "Unified platform for streamers and creators." }},
-            { "@type": "ListItem", "position": 3, "item": { "@type": "CreativeWork", "name": "Attrock Tools", "url": "https://attrock.com/", "description": "AI-powered tools section." }},
-            { "@type": "ListItem", "position": 4, "item": { "@type": "CreativeWork", "name": "The Q Experiences", "url": "https://apps.apple.com/in/app/the-q-experiences/id6739945297", "description": "Cross-platform travel app." }},
-            { "@type": "ListItem", "position": 5, "item": { "@type": "CreativeWork", "name": "GAIL India Website", "url": "https://ggilonline.com/", "description": "Responsive multilingual corporate website." }}
+            { "@type": "ListItem", "position": 3, "item": { "@type": "CreativeWork", "name": "The Q Experiences", "url": "https://apps.apple.com/in/app/the-q-experiences/id6739945297", "description": "Cross-platform travel app." }},
+            { "@type": "ListItem", "position": 4, "item": { "@type": "CreativeWork", "name": "ServedHot Production", "url": "https://servedhotproductions.com/", "description": "Website for a media and ad shooting company." }},
+            { "@type": "ListItem", "position": 5, "item": { "@type": "CreativeWork", "name": "Attrock Tools", "url": "https://attrock.com/", "description": "AI-powered tools section." }},
+            { "@type": "ListItem", "position": 6, "item": { "@type": "CreativeWork", "name": "GAIL India Website", "url": "https://ggilonline.com/", "description": "Responsive multilingual corporate website." }}
         ]
     }
     </script>
@@ -614,10 +615,27 @@
             </h2>
 
             <div class="projects-grid">
-                <!-- Project 0: ServedHot -->
-                <a href="https://servedhotproductions.com/" target="_blank" rel="noopener" class="project-card"><div class="project-card-image"><img src="assets/imgs/work/servedhot.png" alt="ServedHot Production" loading="lazy" width="600" height="400"><div class="project-card-overlay"><i data-lucide="arrow-up-right" class="project-arrow"></i></div></div><div class="project-card-body"><div class="project-card-tags"><span class="tag tag--small">AI-Built</span><span class="tag tag--small">HTML</span><span class="tag tag--small">CSS</span><span class="tag tag--small">JS</span></div><h3 class="project-card-title">ServedHot Production</h3><p class="project-card-desc">Website for a media and ad shooting company. Built entirely using AI tools.</p></div></a>
-                <!-- Project 1 -->
-                <a href="https://www.hypepay.live/" target="_blank" rel="noopener" class="project-card">
+                <!-- Project 1: NewMe360 -->
+                <a href="https://newme360.web.app/site" target="_blank" rel="noopener" class="project-card reveal">
+                    <div class="project-card-image">
+                        <img src="assets/imgs/work/new-me-360.png" alt="NewMe360 — post-surgery recovery companion platform" loading="lazy" width="600" height="400">
+                        <div class="project-card-overlay">
+                            <i data-lucide="arrow-up-right" class="project-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-card-tags">
+                            <span class="tag tag--small">Angular</span>
+                            <span class="tag tag--small">Firebase</span>
+                            <span class="tag tag--small">Healthcare</span>
+                        </div>
+                        <h3 class="project-card-title">NewMe360</h3>
+                        <p class="project-card-desc">Post-surgery recovery companion — a digital health platform supporting patients through their post-operative healing journey.</p>
+                    </div>
+                </a>
+
+                <!-- Project 2: Hypepay -->
+                <a href="https://www.hypepay.live/" target="_blank" rel="noopener" class="project-card reveal">
                     <div class="project-card-image">
                         <img src="assets/imgs/work/hypepay-live.png" alt="Hypepay Live Platform — Angular and Node.js payment platform for streamers" loading="lazy" width="600" height="400">
                         <div class="project-card-overlay">
@@ -636,26 +654,7 @@
                     </div>
                 </a>
 
-                <!-- Project 2 -->
-                <a href="https://attrock.com/" target="_blank" rel="noopener" class="project-card reveal">
-                    <div class="project-card-image">
-                        <img src="assets/imgs/work/attrock.png" alt="Attrock Tools — React and Python AI-powered web tools" loading="lazy" width="600" height="400">
-                        <div class="project-card-overlay">
-                            <i data-lucide="arrow-up-right" class="project-arrow"></i>
-                        </div>
-                    </div>
-                    <div class="project-card-body">
-                        <div class="project-card-tags">
-                            <span class="tag tag--small">React</span>
-                            <span class="tag tag--small">Python</span>
-                            <span class="tag tag--small">Node.js</span>
-                        </div>
-                        <h3 class="project-card-title">Attrock Tools</h3>
-                        <p class="project-card-desc">AI-powered tools section featuring advanced results for multiple use cases.</p>
-                    </div>
-                </a>
-
-                <!-- Project 3 -->
+                <!-- Project 3: The Q Experiences -->
                 <a href="https://apps.apple.com/in/app/the-q-experiences/id6739945297" target="_blank" rel="noopener" class="project-card reveal">
                     <div class="project-card-image">
                         <img src="assets/imgs/work/q-experiences.png" alt="The Q Experiences — Flutter cross-platform travel app" loading="lazy" width="600" height="400">
@@ -671,6 +670,45 @@
                         </div>
                         <h3 class="project-card-title">The Q Experiences</h3>
                         <p class="project-card-desc">Cross-platform travel app for tracking journeys, storing documents offline, and connecting with fellow passengers.</p>
+                    </div>
+                </a>
+
+                <!-- Project 4: ServedHot -->
+                <a href="https://servedhotproductions.com/" target="_blank" rel="noopener" class="project-card reveal">
+                    <div class="project-card-image">
+                        <img src="assets/imgs/work/servedhot.png" alt="ServedHot Production" loading="lazy" width="600" height="400">
+                        <div class="project-card-overlay">
+                            <i data-lucide="arrow-up-right" class="project-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-card-tags">
+                            <span class="tag tag--small">AI-Built</span>
+                            <span class="tag tag--small">HTML</span>
+                            <span class="tag tag--small">CSS</span>
+                            <span class="tag tag--small">JS</span>
+                        </div>
+                        <h3 class="project-card-title">ServedHot Production</h3>
+                        <p class="project-card-desc">Website for a media and ad shooting company. Built entirely using AI tools.</p>
+                    </div>
+                </a>
+
+                <!-- Project 5: Attrock Tools -->
+                <a href="https://attrock.com/" target="_blank" rel="noopener" class="project-card reveal">
+                    <div class="project-card-image">
+                        <img src="assets/imgs/work/attrock.png" alt="Attrock Tools — React and Python AI-powered web tools" loading="lazy" width="600" height="400">
+                        <div class="project-card-overlay">
+                            <i data-lucide="arrow-up-right" class="project-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-card-tags">
+                            <span class="tag tag--small">React</span>
+                            <span class="tag tag--small">Python</span>
+                            <span class="tag tag--small">Node.js</span>
+                        </div>
+                        <h3 class="project-card-title">Attrock Tools</h3>
+                        <p class="project-card-desc">AI-powered tools section featuring advanced results for multiple use cases.</p>
                     </div>
                 </a>
 
