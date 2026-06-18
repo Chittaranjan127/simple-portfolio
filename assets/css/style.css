@@ -2526,10 +2526,10 @@ body.custom-cursor .cursor-block.clicking {
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: flex-start;
-        padding-left: clamp(32px, 8vw, 60px);
-        gap: 0;
+        padding: 116px clamp(32px, 8vw, 60px) 32px;
+        gap: 4px;
         opacity: 0;
         visibility: hidden;
         transform: translateX(100%);
