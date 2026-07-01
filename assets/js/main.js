@@ -576,89 +576,60 @@
         })
         .catch(() => {});
 
-    // Fetch events to build a contribution-like heatmap
+    // Build the contribution wall from GitHub's REAL contribution calendar.
+    // The public events API only exposes ~90 days of *public* events (max 300 total),
+    // so it can never render a full, current wall — this proxy returns the true
+    // 12-month calendar (CORS-enabled, refreshed daily) with GitHub's own 0-4 levels.
     if (ghHeatmap) {
-        // Build 52 weeks of cells (364 days)
-        const today = new Date();
-        const totalDays = 364;
-        const startDate = new Date(today);
-        startDate.setDate(today.getDate() - totalDays);
-        // Align to Sunday
-        startDate.setDate(startDate.getDate() - startDate.getDay());
+        const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-        const dayMap = {};
-        const cells = [];
-
-        for (let d = new Date(startDate); d <= today; d.setDate(d.getDate() + 1)) {
-            const key = d.toISOString().split('T')[0];
-            dayMap[key] = 0;
-            const cell = document.createElement('div');
-            cell.className = 'gh-cell';
-            cell.dataset.date = key;
-            cell.title = key;
-            ghHeatmap.appendChild(cell);
-            cells.push(cell);
-        }
-
-        // Month labels
-        if (ghMonths) {
-            const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        const renderHeatmap = (days) => {
+            ghHeatmap.innerHTML = '';
+            if (ghMonths) ghMonths.innerHTML = '';
             let lastMonth = -1;
-            const weeks = Math.ceil(cells.length / 7);
-            for (let w = 0; w < weeks; w++) {
-                const idx = w * 7;
-                if (idx < cells.length) {
-                    const dt = new Date(cells[idx].dataset.date);
-                    const m = dt.getMonth();
-                    if (m !== lastMonth) {
-                        const span = document.createElement('span');
-                        span.textContent = monthNames[m];
-                        span.style.minWidth = '14px';
-                        ghMonths.appendChild(span);
-                        lastMonth = m;
-                    } else {
-                        const span = document.createElement('span');
-                        span.style.minWidth = '14px';
-                        ghMonths.appendChild(span);
-                    }
-                }
-            }
-        }
+            days.forEach((day, i) => {
+                const count = day.count || 0;
+                const cell = document.createElement('div');
+                cell.className = 'gh-cell';
+                cell.dataset.date = day.date;
+                cell.dataset.level = day.level || 0;
+                cell.title = day.date + ': ' + count + ' contribution' + (count !== 1 ? 's' : '');
+                ghHeatmap.appendChild(cell);
 
-        // Fetch recent events (public, up to 300)
-        const eventPages = [1, 2, 3].map(p =>
-            fetch('https://api.github.com/users/' + GH_USER + '/events/public?per_page=100&page=' + p)
-                .then(r => r.json())
-                .catch(() => [])
-        );
-
-        Promise.all(eventPages).then(pages => {
-            const events = pages.flat();
-            let totalContribs = 0;
-
-            events.forEach(ev => {
-                const date = ev.created_at ? ev.created_at.split('T')[0] : null;
-                if (date && dayMap[date] !== undefined) {
-                    dayMap[date]++;
-                    totalContribs++;
+                // One month-label slot per week column (each column starts on a Sunday).
+                if (ghMonths && i % 7 === 0) {
+                    const span = document.createElement('span');
+                    span.style.minWidth = '14px';
+                    const m = new Date(day.date + 'T00:00:00').getMonth();
+                    if (m !== lastMonth) { span.textContent = monthNames[m]; lastMonth = m; }
+                    ghMonths.appendChild(span);
                 }
             });
+        };
 
-            const el = document.getElementById('ghContribs');
-            if (el) el.textContent = totalContribs;
-
-            // Assign levels
-            cells.forEach(cell => {
-                const count = dayMap[cell.dataset.date] || 0;
-                let level = 0;
-                if (count >= 8) level = 4;
-                else if (count >= 5) level = 3;
-                else if (count >= 2) level = 2;
-                else if (count >= 1) level = 1;
-                cell.dataset.level = level;
-                cell.title = cell.dataset.date + ': ' + count + ' contribution' + (count !== 1 ? 's' : '');
+        fetch('https://github-contributions-api.jogruber.de/v4/' + GH_USER + '?y=last')
+            .then(r => { if (!r.ok) throw new Error('contrib ' + r.status); return r.json(); })
+            .then(data => {
+                const days = data.contributions || [];
+                if (!days.length) throw new Error('no contribution data');
+                renderHeatmap(days);
+                const total = (data.total && (data.total.lastYear ?? Object.values(data.total)[0]))
+                    || days.reduce((s, d) => s + (d.count || 0), 0);
+                const el = document.getElementById('ghContribs');
+                if (el) el.textContent = total;
+            })
+            .catch(() => {
+                // API unreachable: render an empty aligned year so the layout stays intact.
+                const days = [];
+                const today = new Date();
+                const start = new Date(today);
+                start.setDate(today.getDate() - 364);
+                start.setDate(start.getDate() - start.getDay()); // align to Sunday
+                for (let d = new Date(start); d <= today; d.setDate(d.getDate() + 1)) {
+                    days.push({ date: d.toISOString().split('T')[0], count: 0, level: 0 });
+                }
+                renderHeatmap(days);
             });
-        });
     }
 
     // Fetch recent repos
