@@ -624,6 +624,29 @@
             </h2>
 
             <div class="projects-grid">
+                <!-- Web Dev collection: file stack that opens the websites modal -->
+                <button type="button" class="project-card project-card--shelf reveal" id="webShelf" aria-haspopup="dialog" aria-controls="webdevModal">
+                    <div class="shelf-visual" aria-hidden="true">
+                        <span class="shelf-file" style="--i:4"><span class="shelf-bar"><i></i><i></i><i></i><span class="shelf-url">prarthanadalai.github.io</span></span><img src="assets/imgs/work/portfolio-1.png" alt="" loading="lazy" width="600" height="400"></span>
+                        <span class="shelf-file" style="--i:3"><span class="shelf-bar"><i></i><i></i><i></i><span class="shelf-url">chittaranjan127.github.io</span></span><img src="assets/imgs/work/portfolio.png" alt="" loading="lazy" width="600" height="400"></span>
+                        <span class="shelf-file" style="--i:2"><span class="shelf-bar"><i></i><i></i><i></i><span class="shelf-url">ggilonline.com</span></span><img src="assets/imgs/work/gail-india.png" alt="" loading="lazy" width="600" height="400"></span>
+                        <span class="shelf-file" style="--i:1"><span class="shelf-bar"><i></i><i></i><i></i><span class="shelf-url">servedhotproductions.com</span></span><img src="assets/imgs/work/servedhot.png" alt="" loading="lazy" width="600" height="400"></span>
+                        <span class="shelf-file" style="--i:0"><span class="shelf-bar"><i></i><i></i><i></i><span class="shelf-url">rrpixel.com</span></span><img src="assets/imgs/work/rrpixel.png" style="object-position: left top" alt="" loading="lazy" width="600" height="400"></span>
+                        <span class="shelf-count">05 sites</span>
+                        <span class="shelf-hint">open stack <i data-lucide="arrow-up-right"></i></span>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-card-tags">
+                            <span class="tag tag--small">Next.js</span>
+                            <span class="tag tag--small">HTML</span>
+                            <span class="tag tag--small">Bootstrap</span>
+                            <span class="tag tag--small">Angular</span>
+                        </div>
+                        <h3 class="project-card-title">Web Dev Collection</h3>
+                        <p class="project-card-desc">Corporate, agency and portfolio websites — RRPixel, ServedHot, GAIL India and more. Open the stack to browse all five.</p>
+                    </div>
+                </button>
+
                 <!-- Project 1: AI WhatsApp Campaign Designer -->
                 <a href="https://waflowdesigner.mgmotor.co.in/" target="_blank" rel="noopener" class="project-card reveal">
                     <div class="project-card-image">
@@ -722,26 +745,6 @@
                     </div>
                 </a>
 
-                <!-- Project 6: ServedHot -->
-                <a href="https://servedhotproductions.com/" target="_blank" rel="noopener" class="project-card reveal">
-                    <div class="project-card-image">
-                        <img src="assets/imgs/work/servedhot.png" alt="ServedHot Production" loading="lazy" width="600" height="400">
-                        <div class="project-card-overlay">
-                            <i data-lucide="arrow-up-right" class="project-arrow"></i>
-                        </div>
-                    </div>
-                    <div class="project-card-body">
-                        <div class="project-card-tags">
-                            <span class="tag tag--small">AI-Built</span>
-                            <span class="tag tag--small">HTML</span>
-                            <span class="tag tag--small">CSS</span>
-                            <span class="tag tag--small">JS</span>
-                        </div>
-                        <h3 class="project-card-title">ServedHot Production</h3>
-                        <p class="project-card-desc">Website for a media and ad shooting company. Built entirely using AI tools.</p>
-                    </div>
-                </a>
-
                 <!-- Project 7: Attrock Tools -->
                 <a href="https://attrock.com/" target="_blank" rel="noopener" class="project-card reveal">
                     <div class="project-card-image">
@@ -760,9 +763,66 @@
                         <p class="project-card-desc">AI-powered tools section featuring advanced results for multiple use cases.</p>
                     </div>
                 </a>
+            </div>
+        </div>
+    </section>
 
-                <!-- Project 4 -->
-                <a href="https://ggilonline.com/" target="_blank" rel="noopener" class="project-card reveal">
+    <!-- ============ WEB DEV PROJECTS MODAL ============ -->
+    <div class="webdev-modal" id="webdevModal" role="dialog" aria-modal="true" aria-labelledby="webdevTitle" hidden>
+        <div class="webdev-backdrop" data-webdev-close></div>
+        <div class="webdev-panel" id="webdevPanel">
+            <div class="webdev-head">
+                <div>
+                    <span class="webdev-path">~/projects/web-dev</span>
+                    <h3 class="webdev-title" id="webdevTitle">Web Dev <span class="heading-accent">collection.</span></h3>
+                </div>
+                <button type="button" class="webdev-close" data-webdev-close aria-label="Close web dev projects">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="webdev-grid">
+                <!-- RRPixel -->
+                <a href="https://www.rrpixel.com/" target="_blank" rel="noopener" class="project-card webdev-card">
+                    <div class="project-card-image">
+                        <img src="assets/imgs/work/rrpixel.png" style="object-position: left top" alt="RRPixel — motion design agency website vibe coded with Claude Code" loading="lazy" width="600" height="400">
+                        <div class="project-card-overlay">
+                            <i data-lucide="arrow-up-right" class="project-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-card-tags">
+                            <span class="tag tag--small">Claude Code</span>
+                            <span class="tag tag--small">Vibe Coded</span>
+                            <span class="tag tag--small">Next.js</span>
+                            <span class="tag tag--small">GSAP</span>
+                        </div>
+                        <h3 class="project-card-title">RRPixel</h3>
+                        <p class="project-card-desc">Website for an AI-powered motion design agency — vibe coded end to end with Claude Code, from layout to GSAP motion. Zero hand-written boilerplate.</p>
+                    </div>
+                </a>
+
+                <!-- ServedHot -->
+                <a href="https://servedhotproductions.com/" target="_blank" rel="noopener" class="project-card webdev-card">
+                    <div class="project-card-image">
+                        <img src="assets/imgs/work/servedhot.png" alt="ServedHot Production" loading="lazy" width="600" height="400">
+                        <div class="project-card-overlay">
+                            <i data-lucide="arrow-up-right" class="project-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-card-tags">
+                            <span class="tag tag--small">AI-Built</span>
+                            <span class="tag tag--small">HTML</span>
+                            <span class="tag tag--small">CSS</span>
+                            <span class="tag tag--small">JS</span>
+                        </div>
+                        <h3 class="project-card-title">ServedHot Production</h3>
+                        <p class="project-card-desc">Website for a media and ad shooting company. Built entirely using AI tools.</p>
+                    </div>
+                </a>
+
+                <!-- GAIL India -->
+                <a href="https://ggilonline.com/" target="_blank" rel="noopener" class="project-card webdev-card">
                     <div class="project-card-image">
                         <img src="assets/imgs/work/gail-india.png" alt="GAIL India — multilingual corporate website" loading="lazy" width="600" height="400">
                         <div class="project-card-overlay">
@@ -780,8 +840,8 @@
                     </div>
                 </a>
 
-                <!-- Project 5 -->
-                <a href="https://chittaranjan127.github.io/portfolio/" target="_blank" rel="noopener" class="project-card reveal">
+                <!-- Portfolio -->
+                <a href="https://chittaranjan127.github.io/portfolio/" target="_blank" rel="noopener" class="project-card webdev-card">
                     <div class="project-card-image">
                         <img src="assets/imgs/work/portfolio.png" alt="Portfolio Website" loading="lazy" width="600" height="400">
                         <div class="project-card-overlay">
@@ -798,8 +858,8 @@
                     </div>
                 </a>
 
-                <!-- Project 6 -->
-                <a href="https://prarthanadalai.github.io/prarthana-portfolio/" target="_blank" rel="noopener" class="project-card reveal">
+                <!-- Client Portfolio -->
+                <a href="https://prarthanadalai.github.io/prarthana-portfolio/" target="_blank" rel="noopener" class="project-card webdev-card">
                     <div class="project-card-image">
                         <img src="assets/imgs/work/portfolio-1.png" alt="Customer Portfolio" loading="lazy" width="600" height="400">
                         <div class="project-card-overlay">
@@ -818,7 +878,7 @@
                 </a>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- ============ TESTIMONIALS ============ -->
     <section class="section" id="testimonials">

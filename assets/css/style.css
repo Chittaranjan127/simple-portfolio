@@ -1733,6 +1733,347 @@ body.custom-cursor .cursor-block.clicking {
     flex: 1;
 }
 
+/* ---------- WEB DEV SHELF: free-standing pile of site files ---------- */
+/* No card chrome: the stacked files are the visual, text sits underneath. */
+.project-card--shelf,
+.project-card--shelf:hover {
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    padding: 0;
+    width: 100%;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    transform: none;
+}
+
+.project-card--shelf:focus-visible,
+.webdev-close:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 6px;
+    border-radius: var(--radius-md);
+}
+
+.shelf-visual {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    /* Room for the back files peeking out above and to the right. */
+    margin: 38px 38px 0 0;
+}
+
+/* Soft floor glow under the pile. */
+.shelf-visual::before {
+    content: '';
+    position: absolute;
+    left: 6%;
+    right: -4%;
+    bottom: -18px;
+    height: 40px;
+    background: radial-gradient(closest-side, rgba(59, 130, 246, 0.22), transparent);
+    filter: blur(6px);
+    pointer-events: none;
+    transition: opacity var(--duration-normal) ease;
+    opacity: 0.6;
+}
+
+/* Each file is a mini browser window; back files step up-right and tilt. */
+.shelf-file {
+    --dx: 9px;
+    --dy: -9px;
+    --rot: 1.8deg;
+    --raise: 0px;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transform-origin: 20% 100%;
+    transform:
+        translate(calc(var(--i) * var(--dx)), calc(var(--i) * var(--dy) - var(--raise)))
+        rotate(calc(var(--i) * var(--rot)));
+    filter: brightness(calc(1 - var(--i) * 0.12));
+    z-index: calc(10 - var(--i));
+    transition:
+        transform var(--duration-slow) var(--ease-out-expo),
+        filter var(--duration-normal) ease,
+        opacity var(--duration-normal) ease,
+        border-color var(--duration-normal) ease;
+    transition-delay: calc(var(--i) * 35ms);
+}
+
+.shelf-bar {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 22px;
+    padding: 0 10px;
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.shelf-bar i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border-medium);
+}
+
+.shelf-file[style*="--i:0"] .shelf-bar i:nth-child(1) { background: #ff5f56; }
+.shelf-file[style*="--i:0"] .shelf-bar i:nth-child(2) { background: #ffbd2e; }
+.shelf-file[style*="--i:0"] .shelf-bar i:nth-child(3) { background: #27c93f; }
+
+.shelf-url {
+    margin-left: 6px;
+    min-width: 0;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.shelf-file[style*="--i:0"] .shelf-url { color: var(--text-secondary); }
+
+.shelf-file img {
+    display: block;
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.shelf-count,
+.shelf-hint {
+    position: absolute;
+    bottom: 12px;
+    z-index: 20;
+    padding: 4px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: opacity var(--duration-normal) ease, transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.shelf-count {
+    left: 12px;
+    color: var(--accent-green);
+    background: rgba(6, 6, 11, 0.7);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.shelf-hint {
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #fff;
+    background: var(--accent-blue);
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+.shelf-hint svg { width: 12px; height: 12px; }
+
+.project-card--shelf .project-card-body {
+    padding: 26px 38px 0 2px;
+}
+
+.project-card--shelf .project-card-title {
+    transition: color var(--duration-fast) ease;
+}
+
+/* Hover: the pile fans out and the front file lifts. */
+.project-card--shelf:hover .shelf-file,
+.project-card--shelf:focus-visible .shelf-file {
+    --dx: 16px;
+    --dy: -13px;
+    --rot: 2.9deg;
+    --raise: 6px;
+    filter: brightness(calc(1 - var(--i) * 0.07));
+}
+
+.project-card--shelf:hover .shelf-file[style*="--i:0"] { border-color: var(--border-accent); }
+.project-card--shelf:hover .shelf-visual::before { opacity: 1; }
+.project-card--shelf:hover .shelf-hint,
+.project-card--shelf:focus-visible .shelf-hint { opacity: 1; transform: none; }
+.project-card--shelf:hover .project-card-title { color: var(--accent-blue); }
+.project-card--shelf:hover .project-card-image img { transform: none; }
+
+/* Click: files lift off the pile one by one before the modal takes over. */
+.shelf-visual.is-opening .shelf-file {
+    transform: translate(calc((var(--i) - 2) * 26px), -120%) rotate(calc((var(--i) - 2) * 5deg)) scale(0.9);
+    opacity: 0;
+    transition-duration: 0.45s, 0.3s, 0.35s, 0.3s;
+    transition-delay: calc((4 - var(--i)) * 40ms);
+}
+
+.shelf-visual.is-opening .shelf-count,
+.shelf-visual.is-opening .shelf-hint { opacity: 0; }
+
+/* The fanned pile may lean past the grid edge; never let it cause page scroll. */
+#projects { overflow-x: clip; }
+
+@media (max-width: 768px) {
+    .shelf-visual { margin: 28px 26px 0 0; }
+    .project-card--shelf .project-card-body { padding-right: 26px; }
+    .shelf-file { --dx: 6px; --dy: -7px; --rot: 1.1deg; }
+    .project-card--shelf:hover .shelf-file,
+    .project-card--shelf:focus-visible .shelf-file { --dx: 9px; --dy: -10px; --rot: 1.8deg; }
+}
+
+/* ---------- WEB DEV MODAL ---------- */
+.webdev-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: grid;
+    place-items: center;
+    padding: clamp(12px, 3vw, 32px);
+}
+
+.webdev-modal[hidden] { display: none; }
+
+.webdev-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(6, 6, 11, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity var(--duration-normal) ease;
+}
+
+.webdev-panel {
+    position: relative;
+    width: min(1120px, 100%);
+    max-height: calc(100vh - 48px);
+    max-height: calc(100dvh - 48px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: clamp(20px, 3vw, 36px);
+    background: var(--bg-base);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg), 0 0 80px rgba(59, 130, 246, 0.12);
+    /* Grows out of the clicked stack: --from-x/--from-y set by JS. */
+    transform: translate(var(--from-x, 0px), var(--from-y, 40px)) scale(0.3);
+    opacity: 0;
+    transition:
+        transform 0.55s var(--ease-out-expo),
+        opacity 0.3s ease;
+}
+
+.webdev-modal.is-open .webdev-backdrop { opacity: 1; }
+
+.webdev-modal.is-open .webdev-panel {
+    transform: none;
+    opacity: 1;
+}
+
+.webdev-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: clamp(20px, 3vw, 28px);
+}
+
+.webdev-path {
+    display: block;
+    margin-bottom: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-green);
+}
+
+.webdev-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.webdev-close {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: color var(--duration-fast) ease, border-color var(--duration-fast) ease, transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.webdev-close:hover {
+    color: var(--text-primary);
+    border-color: var(--border-accent);
+    transform: rotate(90deg);
+}
+
+.webdev-close svg { width: 18px; height: 18px; }
+
+.webdev-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    perspective: 1400px;
+}
+
+/* Cards are "pulled out of the stack" one after another. */
+.webdev-modal .webdev-card {
+    opacity: 0;
+    transform: translateY(46px) rotateX(22deg) scale(0.94);
+    transform-origin: 50% 100%;
+}
+
+.webdev-modal.is-open .webdev-card {
+    opacity: 1;
+    transform: none;
+    transition:
+        opacity 0.4s ease,
+        transform 0.6s var(--ease-out-expo),
+        border-color var(--duration-normal) ease,
+        box-shadow var(--duration-normal) ease;
+    transition-delay: calc(160ms + var(--i, 0) * 80ms);
+}
+
+.webdev-modal.is-open .webdev-card:hover {
+    transform: translateY(-6px);
+    transition-delay: 0s;
+}
+
+html.webdev-lock,
+html.webdev-lock body {
+    overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .shelf-file,
+    .webdev-panel,
+    .webdev-backdrop,
+    .webdev-modal .webdev-card,
+    .webdev-modal.is-open .webdev-card {
+        transition: none !important;
+    }
+    .webdev-panel,
+    .webdev-modal .webdev-card { transform: none; }
+}
+
 /* ---------- SKILLS ---------- */
 .skills-grid {
     display: grid;

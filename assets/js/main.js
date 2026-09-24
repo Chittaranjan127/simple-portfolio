@@ -662,4 +662,102 @@
             });
     }
 
+    /* ---------- WEB DEV SHELF: stacked files that open into a modal ---------- */
+    (function initWebShelf() {
+        const modal = document.getElementById('webdevModal');
+        const shelf = document.getElementById('webShelf');
+        if (!modal) return;
+
+        const panel = modal.querySelector('.webdev-panel');
+        const closeBtn = modal.querySelector('.webdev-close');
+        const cards = Array.prototype.slice.call(modal.querySelectorAll('.webdev-card'));
+        const mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const root = document.documentElement;
+        let lastTrigger = null;
+        let activeVisual = null;
+        let busy = false;
+        let closeTimer = null;
+
+        cards.forEach((c, i) => c.style.setProperty('--i', i)); // stagger order
+
+        // Point the panel's start transform at the clicked stack so it grows out of it.
+        function setOrigin(el) {
+            if (!el) return;
+            const r = el.getBoundingClientRect();
+            panel.style.setProperty('--from-x', (r.left + r.width / 2 - window.innerWidth / 2).toFixed(1) + 'px');
+            panel.style.setProperty('--from-y', (r.top + r.height / 2 - window.innerHeight / 2).toFixed(1) + 'px');
+        }
+
+        function lockScroll(on) {
+            if (on) {
+                const gap = window.innerWidth - root.clientWidth; // avoid layout jump when scrollbar hides
+                if (gap > 0) document.body.style.paddingRight = gap + 'px';
+                root.classList.add('webdev-lock');
+            } else {
+                root.classList.remove('webdev-lock');
+                document.body.style.paddingRight = '';
+            }
+        }
+
+        function open(trigger) {
+            if (busy || modal.classList.contains('is-open')) return;
+            busy = true;
+            clearTimeout(closeTimer);
+            lastTrigger = trigger || document.activeElement;
+            activeVisual = trigger
+                ? (trigger.classList.contains('shelf-visual') ? trigger : trigger.querySelector('.shelf-visual'))
+                : null;
+
+            // Step 1: files lift out of the stack. Step 2: the modal takes over.
+            if (activeVisual) activeVisual.classList.add('is-opening');
+            setTimeout(() => {
+                setOrigin(activeVisual || trigger);
+                modal.hidden = false;
+                lockScroll(true);
+                void panel.offsetWidth; // commit the start state so the transition runs
+                modal.classList.add('is-open');
+                closeBtn.focus({ preventScroll: true });
+                busy = false;
+            }, activeVisual && !mqReduce.matches ? 260 : 0);
+        }
+
+        function close() {
+            if (!modal.classList.contains('is-open')) return;
+            if (activeVisual) setOrigin(activeVisual);
+            modal.classList.remove('is-open');
+            // Files slide back into the stack as the modal shrinks away.
+            if (activeVisual) activeVisual.classList.remove('is-opening');
+            closeTimer = setTimeout(() => {
+                modal.hidden = true;
+                lockScroll(false);
+            }, mqReduce.matches ? 0 : 450);
+            if (lastTrigger && lastTrigger.focus) lastTrigger.focus({ preventScroll: true });
+        }
+
+        if (shelf) shelf.addEventListener('click', () => open(shelf));
+
+        modal.addEventListener('click', (e) => {
+            if (e.target.closest('[data-webdev-close]')) close();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('is-open')) return;
+            if (e.key === 'Escape') {
+                close();
+            } else if (e.key === 'Tab') {
+                // Keep focus inside the dialog.
+                const focusables = [closeBtn].concat(cards);
+                const first = focusables[0];
+                const last = focusables[focusables.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
+        });
+    })();
+
 })();
