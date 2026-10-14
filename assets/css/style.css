@@ -1761,7 +1761,7 @@ body.custom-cursor .cursor-block.clicking {
     position: relative;
     aspect-ratio: 16 / 10;
     /* Room for the back files peeking out above and to the right. */
-    margin: 38px 38px 0 0;
+    margin: 40px 48px 0 0;
 }
 
 /* Soft floor glow under the pile. */
@@ -1781,9 +1781,9 @@ body.custom-cursor .cursor-block.clicking {
 
 /* Each file is a mini browser window; back files step up-right and tilt. */
 .shelf-file {
-    --dx: 9px;
-    --dy: -9px;
-    --rot: 1.8deg;
+    --dx: 6px;
+    --dy: -8px;
+    --rot: 1deg;
     --raise: 0px;
     position: absolute;
     inset: 0;
@@ -1798,7 +1798,7 @@ body.custom-cursor .cursor-block.clicking {
     transform:
         translate(calc(var(--i) * var(--dx)), calc(var(--i) * var(--dy) - var(--raise)))
         rotate(calc(var(--i) * var(--rot)));
-    filter: brightness(calc(1 - var(--i) * 0.12));
+    filter: brightness(calc(1 - var(--i) * 0.11));
     z-index: calc(10 - var(--i));
     transition:
         transform var(--duration-slow) var(--ease-out-expo),
@@ -1887,7 +1887,7 @@ body.custom-cursor .cursor-block.clicking {
 .shelf-hint svg { width: 12px; height: 12px; }
 
 .project-card--shelf .project-card-body {
-    padding: 26px 38px 0 2px;
+    padding: 26px 48px 0 2px;
 }
 
 .project-card--shelf .project-card-title {
@@ -1897,11 +1897,11 @@ body.custom-cursor .cursor-block.clicking {
 /* Hover: the pile fans out and the front file lifts. */
 .project-card--shelf:hover .shelf-file,
 .project-card--shelf:focus-visible .shelf-file {
-    --dx: 16px;
-    --dy: -13px;
-    --rot: 2.9deg;
+    --dx: 9px;
+    --dy: -11px;
+    --rot: 1.6deg;
     --raise: 6px;
-    filter: brightness(calc(1 - var(--i) * 0.07));
+    filter: brightness(calc(1 - var(--i) * 0.06));
 }
 
 .project-card--shelf:hover .shelf-file[style*="--i:0"] { border-color: var(--border-accent); }
@@ -1913,10 +1913,10 @@ body.custom-cursor .cursor-block.clicking {
 
 /* Click: files lift off the pile one by one before the modal takes over. */
 .shelf-visual.is-opening .shelf-file {
-    transform: translate(calc((var(--i) - 2) * 26px), -120%) rotate(calc((var(--i) - 2) * 5deg)) scale(0.9);
+    transform: translate(calc((var(--i) - 2.5) * 22px), -120%) rotate(calc((var(--i) - 2.5) * 4deg)) scale(0.9);
     opacity: 0;
     transition-duration: 0.45s, 0.3s, 0.35s, 0.3s;
-    transition-delay: calc((4 - var(--i)) * 40ms);
+    transition-delay: calc((5 - var(--i)) * 36ms);
 }
 
 .shelf-visual.is-opening .shelf-count,
@@ -1926,11 +1926,11 @@ body.custom-cursor .cursor-block.clicking {
 #projects { overflow-x: clip; }
 
 @media (max-width: 768px) {
-    .shelf-visual { margin: 28px 26px 0 0; }
-    .project-card--shelf .project-card-body { padding-right: 26px; }
-    .shelf-file { --dx: 6px; --dy: -7px; --rot: 1.1deg; }
+    .shelf-visual { margin: 32px 28px 0 0; }
+    .project-card--shelf .project-card-body { padding-right: 28px; }
+    .shelf-file { --dx: 5px; --dy: -6px; --rot: 0.9deg; }
     .project-card--shelf:hover .shelf-file,
-    .project-card--shelf:focus-visible .shelf-file { --dx: 9px; --dy: -10px; --rot: 1.8deg; }
+    .project-card--shelf:focus-visible .shelf-file { --dx: 7px; --dy: -8px; --rot: 1.4deg; }
 }
 
 /* ---------- WEB DEV MODAL ---------- */
